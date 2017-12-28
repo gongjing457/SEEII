@@ -1,0 +1,111 @@
+﻿@model PagedList.StaticPagedList<Document>
+
+@{
+    Layout = null;
+}
+
+
+@using SEEIPro.Models;
+@using PagedList.Mvc;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>常用材料下载</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/panelbase.css" rel="stylesheet" />
+    <link href="~/Content/css/PagedList.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .panel-body {
+            /*padding-left: 10px;*/
+            min-height: 600px;
+            display: block;
+        }
+
+        .file_list {
+            list-style-type: none;
+            min-width: 800px;
+        }
+
+            .file_list li {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: #b7b7b7;
+                border-bottom: 1px solid #DCDCDC;
+            }
+
+                .file_list li:hover {
+                    background: #F8F8FF;
+                }
+
+                .file_list li span {
+                }
+
+                .file_list li .sp_name {
+                    color: black;
+                    text-decoration: none;
+                    float: left;
+                }
+
+                .file_list li a:hover {
+                    color: #0000FF;
+                }
+
+        fieldset {
+            border: 0;
+        }
+
+        .dt_upload {
+            padding-right: 10px;
+            float: right;
+        }
+
+        .div_pager { 
+            margin: 0px auto;
+            display: block;
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        .tb_pager {
+            text-align: center;
+            margin: 0 auto;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>资料下载</h4></div>
+        <div class="panel-body">
+            <ul class="file_list">
+                @foreach (Document doc in Model)
+                {
+                    <li>
+                        <span><a class="sp_name" href="@Url.Action("Download", "Util")" target="_blank" title="点击即将开始下载！"><i class="icon-caret-right"></i> @doc.downloadLink @doc.name </a>&nbsp; &nbsp;&nbsp; &nbsp;已下载：<span class="badge">@doc.downloadCounts</span></span>
+                        <span class="dt_upload"><span class="glyphicon glyphicon-time"></span>上传时间：@doc.uploadTime.ToString().Substring(0, 10)</span>
+                    </li>
+                }
+            </ul>
+            <table class="tb_pager">
+                <tr>
+                    <td> 每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页</td>
+                    <td> @Html.PagedListGoToPageForm((PagedList.IPagedList)Model, "Docs", new GoToFormRenderOptions { LabelFormat = "跳转到：" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.PagedListPager(Model, page => Url.Action("Docs", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 })</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

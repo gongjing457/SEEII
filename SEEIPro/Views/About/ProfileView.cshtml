@@ -1,0 +1,207 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>简介</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+    <style>
+        .panel {
+            margin: 40px auto;
+            width: 100%;
+            min-height: 800px;
+            overflow: hidden;
+            color: #4F4F4F;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+        }
+
+            .panel .panel-body p {
+                line-height: 40px;
+            }
+
+            .panel .panel-body img {
+                margin: 0 auto;
+            }
+
+        #mapContainer {
+            margin: 10px auto;
+            width: 98%;
+            height: 520px;
+            border-radius: 20px;
+        }
+
+        /*自定义信息窗体*/
+        .info {
+            border: solid 1px silver;
+        }
+
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #33afff;
+            border-bottom: 1px solid #CCC;
+        }
+
+            div.info-top div {
+                display: inline-block;
+                color: #FFFFFF;
+                font-size: 16px;
+                /*  font-weight: bold;*/
+                /* line-height: 30px;*/
+                padding: 10px 5px;
+            }
+
+            div.info-top img {
+                position: absolute;
+                top: 15px;
+                right: 10px;
+                transition-duration: 0.25s;
+            }
+
+                div.info-top img:hover {
+                    box-shadow: 0px 0px 5px #000;
+                }
+
+        div.info-middle {
+            font-size: 12px;
+            padding: 2px 2px 5px 2px;
+            line-height: 20px;
+        }
+
+
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+
+            div.info-bottom img {
+                position: relative;
+                z-index: 104;
+            }
+
+        .info-middle img {
+            float: left;
+            padding-right: 5px;
+            /*margin-right: 5px;
+            padding-bottom: 5px;*/
+        }
+
+        .traf-title {
+            line-height: 30px;
+            text-align: center;
+            display: block;
+        }
+    </style>
+    <script src="http://webapi.amap.com/maps?v=1.4.2&key=4100653c7ec531a1244d340d14d8af11"></script>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>研究院简介</h4></div>
+        <div class="panel-body">
+            <p>
+                &nbsp;&nbsp; &nbsp;&nbsp;南方教育装备创新研究院，是南方教育装备创新产业城创新驱动的核心支撑部分，是在教育部教育装备研究与发展中心的指导与支持下，采取政府、高校、企业等多部门协同创新的方式，建设的一所集教育装备技术研发、产品检测、人才培养和产业孵化为一体的教育装备新型研发机构。宗旨是打造中国教育装备高端产业智库，引领教育装备产业发展。
+            </p>
+
+            <img src="~/Content/images/info.jpg" style="width:640px;height:320px" draggable="false" />
+            <span class="traf-title">地理指引</span>
+            <div id="mapContainer">
+            </div>
+        </div>
+    </div>
+    <script>
+        var lnglat = [113.04817, 22.61702];
+        var map = new AMap.Map('mapContainer', {
+            resizeEnable: true,
+            center: lnglat,
+            zoom: 12
+        });
+
+        map.plugin(["AMap.ToolBar"], function () {
+            map.addControl(new AMap.ToolBar());
+        });
+        addMarker();
+
+        //添加marker标记
+        function addMarker() {
+            map.clearMap();
+            var marker = new AMap.Marker({
+                map: map,
+                position: lnglat
+            });
+
+            //鼠标点击marker弹出自定义的信息窗体
+            AMap.event.addListener(marker, 'click', function () {
+                infoWindow.open(map, marker.getPosition());
+            });
+        }
+
+        //实例化信息窗体
+        var title = '南方教育装备创新研究院',
+            content = [];
+        content.push("<img src='../Content/images/nfjyzbcxyjy.jpg'>地址：广东省江门市蓬江区群华路15号5栋2层");
+        content.push("电话：0750-3699695");
+        content.push("邮编：529000");
+        content.push("官方网站：www.seeii.org");
+        var infoWindow = new AMap.InfoWindow({
+            isCustom: true,  //使用自定义窗体
+            content: createInfoWindow(title, content.join("<br/>")),
+            offset: new AMap.Pixel(16, -45)
+        });
+        infoWindow.open(map, map.getCenter());
+
+        //构建自定义信息窗体
+        function createInfoWindow(title, content) {
+            var info = document.createElement("div");
+            info.className = "info";
+
+            //可以通过下面的方式修改自定义窗体的宽高
+            info.style.width = "340px";
+            // 定义顶部标题
+            var top = document.createElement("div");
+            var titleD = document.createElement("div");
+            var closeX = document.createElement("img");
+            top.className = "info-top";
+            titleD.innerHTML = title;
+            closeX.src = "http://webapi.amap.com/images/close2.gif";
+            closeX.onclick = closeInfoWindow;
+
+            top.appendChild(titleD);
+            top.appendChild(closeX);
+            info.appendChild(top);
+
+            // 定义中部内容
+            var middle = document.createElement("div");
+            middle.className = "info-middle";
+            middle.style.backgroundColor = 'white';
+            middle.innerHTML = content;
+            info.appendChild(middle);
+
+            // 定义底部内容
+            var bottom = document.createElement("div");
+            bottom.className = "info-bottom";
+            bottom.style.position = 'relative';
+            bottom.style.top = '0px';
+            bottom.style.margin = '0 auto';
+            var sharp = document.createElement("img");
+            sharp.src = "http://webapi.amap.com/images/sharp.png";
+            bottom.appendChild(sharp);
+            info.appendChild(bottom);
+            return info;
+        }
+
+        //关闭信息窗体
+        function closeInfoWindow() {
+            map.clearInfoWindow();
+        }
+    </script>
+</body>
+</html>

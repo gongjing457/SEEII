@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "ExpertProfile";
+    Layout = "~/Views/Shared/_LayoutPageTopMain.cshtml";
+}
+
+@using SEEIPro.Models;
+
+<link href="~/Content/css/ExpertProfile.css" rel="stylesheet" />
+@*<hr class="ltr_hr" dir="ltr" style="border-top:inset 1px solid" draggable="false" />*@
+
+<hr style="border-top: #DCDCDC solid; color: #123456; border-bottom: #DCDCDC solid; height:2px" draggable="false" />
+<table class="tb_container">
+    <thead><tr><td colspan="5">南方教育装备产业发展智库特聘专家<span style="font-size:10px;color:orange">(排名不分先后)</span></td></tr></thead>
+    <tbody>
+        <tr>
+            @foreach (Expert expert in ViewBag.Experts as List<Expert>)
+            {
+                <td>
+                    <img class="expert_icon" src="~/Content/xiaoyicun/obama.jpg" alt="暂无图片" /><br />
+                    <span>姓名：<a href="@expert.personalUrl" target="_blank">@expert.eName</a></span><br /><span>技术职称：@expert.academicTitles</span><br /><span>研究领域：@expert.field</span>
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+
+
+<ul>
+    @foreach (Expert expert in @ViewBag.Experts as List<Expert>)
+    {
+        <li>
+            <img class="expert_icon" src="~/Content/xiaoyicun/obama.jpg" alt="暂无照片" /><br />
+            <span>姓名：<a href="@expert.personalUrl" target="_blank">@expert.eName</a></span><br />
+            <span>技术职称：@expert.academicTitles</span><br />
+            <span>研究领域：@expert.field</span>
+        </li>
+    }
+</ul>

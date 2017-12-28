@@ -1,0 +1,97 @@
+
+.imgcontainer {
+    /*max-width: 1200px;*/
+    /*overflow:hidden;*/
+    padding: 0px;
+}
+
+.imgcontainer {
+    margin: auto;
+}
+
+
+
+.mySlideshow .animated {
+    position: absolute;
+}
+
+
+
+.first {
+    color: white;
+    background: url("../images/first.jpg") center no-repeat;
+    background-size: cover; /*20170921*/
+}
+
+    /*.first a,
+    .first img {
+        display: block;
+    }*/
+
+    .first span, .second span, .third span, .fourth span, .fifth span {
+        top: 5%;
+        left: 55%; /*left: 49%;*/
+        color: white;
+        font-size: 18px;
+        margin-left: -165px;
+    }
+
+    /*.first a:hover, .second a:hover, .third a:hover, .fourth a:hover, .fifth a:hover {
+        color: #FFFFFF !important;
+        text-decoration: none !important;
+    }*/
+
+    .first div, .second div, .third div, .fourth div, .fifth div {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 14px;
+        bottom: 80px;
+        left: 49%; /*39%*/
+        /*height: 100px;*/
+        width: 600px; /*320*/
+        /*text-align: center;*/
+        margin-left: -300px;
+    }
+
+.second {
+    color: white;
+    background: url("../images/second.jpg") center no-repeat;
+    background-size: cover; /*20170921*/
+}
+
+    .second img {
+        top: 160px;
+        right: 19%;
+    }
+
+.third {
+    color: white;
+    background: url("../images/third.jpg") center no-repeat;
+    background-size: cover; /*20170921*/
+}
+
+    .third img {
+        top: 100px;
+        left: 23%;
+    }
+
+.fourth {
+    color: white;
+    background: url("../images/fourth.jpg") center no-repeat;
+    background-size: cover; /*20170921*/
+}
+
+    .fourth img {
+        top: 320px;
+        right: 8%;
+    }
+
+.fifth {
+    color: white;
+    background: url("../images/fifth.jpg") center no-repeat;
+    background-size: cover; /*20170921*/
+}
+
+    .fifth img {
+        top: 120px;
+        left: 21%;
+    }

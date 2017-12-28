@@ -1,0 +1,87 @@
+﻿body {
+    font-size: 14px;
+}
+
+.div_query {
+    margin: 20px auto;
+    width: 98%;
+    min-width: 200px;
+    height: 40px;
+    overflow: hidden;
+}
+
+/*#tb_list {
+    margin-top: 5px;
+    width: 98%;
+      font: "微软雅黑";
+    border: solid #F5F5F5 1px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+    #tb_list thead tr {
+        height: 40px;
+    }
+
+        #tb_list thead tr td {
+            font-size: 16px;
+        }
+
+    #tb_list tbody tr td {
+        font-size: 14px;
+    }
+
+    #tb_list tbody tr {
+        height: 30px;
+    }
+
+        #tb_list tbody tr:hover {
+            background-color: #F5F5F5;
+        }*/
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.alink:hover {
+    color: blue;
+    background-color: #DCDCDC;
+    border-bottom: solid blue 1px;
+}
+
+.btn {
+    margin-left: 50px;
+    height: 30px;
+    width: 120px;
+    border-radius: 5px;
+}
+
+.abutton {
+    float: right;
+    height: 22px;
+    margin-right: 50px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+    .abutton:hover {
+        color: white;
+        background-color: #A2CD5A;
+    }
+
+
+.textbox {
+    text-align: center;
+    height: 30px;
+    width: 160px;
+    border-radius: 5px;
+}
+
+
+
+#tb_list tr, td {
+    border: solid #F5F5F5 1px;
+    border-collapse: collapse;
+}

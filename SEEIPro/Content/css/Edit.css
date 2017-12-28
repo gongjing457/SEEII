@@ -1,0 +1,39 @@
+﻿#tb_explist {
+    width: 90%;
+    min-width: 900px;
+    height: 600px;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #DCDCDC;
+    border-collapse: collapse;
+}
+
+
+
+    #tb_explist tr, td {
+        border: 1px solid #DCDCDC;
+        border-collapse: collapse;
+    }
+
+
+.text {
+    text-align: center;
+    height: 20px;
+    width: 180px;
+    border-radius: 5px;
+}
+
+.button {
+    margin-left: 100px;
+    height: 30px;
+    width: 140px;
+    border-radius: 5px;
+}
+
+    .button:hover {
+        border: solid blue 1px;
+        cursor: pointer;
+        color: blue;
+        background-color: #BEBEBE;
+    }

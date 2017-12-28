@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="seeiExpertsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="exlId" />
+          </Key>
+          <Property Name="exlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="downloadLink" Type="varchar" MaxLength="500" />
+          <Property Name="uploadTime" Type="smalldatetime" />
+          <Property Name="uploader" Type="nvarchar" MaxLength="50" />
+          <Property Name="downloadCounts" Type="varchar" MaxLength="30" />
+          <Property Name="remark" Type="nvarchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="ExpertBankInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serialId" Type="char" MaxLength="17" Nullable="false" />
+          <Property Name="accountName" Type="nvarchar" MaxLength="30" />
+          <Property Name="acountNumber" Type="varchar" MaxLength="21" />
+          <Property Name="bankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ExpertExperience">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serialId" Type="char" MaxLength="17" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="time" Type="datetime" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="pdffiles" Type="varchar" MaxLength="300" />
+          <Property Name="video" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Experts">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eId" Type="char" MaxLength="17" />
+          <Property Name="eName" Type="nvarchar" MaxLength="16" />
+          <Property Name="gender" Type="nvarchar" MaxLength="2" />
+          <Property Name="birthDay" Type="smalldatetime" />
+          <Property Name="identityNumber" Type="char" MaxLength="18" />
+          <Property Name="unitProperty" Type="int" />
+          <Property Name="UnitDetailsOne" Type="nvarchar" MaxLength="100" />
+          <Property Name="UnitDetailsTwo" Type="nvarchar" MaxLength="100" />
+          <Property Name="UnitDetailsThree" Type="nvarchar" MaxLength="100" />
+          <Property Name="academicTitles" Type="nvarchar" MaxLength="200" />
+          <Property Name="field" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="officePhone" Type="varchar" MaxLength="30" />
+          <Property Name="cellPphone" Type="char" MaxLength="11" />
+          <Property Name="postalAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="expertSources" Type="nvarchar" MaxLength="50" />
+          <Property Name="beStatus" Type="int" />
+          <Property Name="img" Type="varchar" MaxLength="200" />
+          <Property Name="personalUrl" Type="varchar(max)" />
+          <Property Name="Categories" Type="nvarchar" MaxLength="100" />
+          <Property Name="registrationForm" Type="varchar(max)" />
+          <Property Name="appointmentBook" Type="varchar(max)" />
+          <Property Name="SerialNum" Type="char" MaxLength="4" />
+          <Property Name="remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="expertIntroduction" Type="nvarchar" MaxLength="350" />
+          <Property Name="expertworkingExperience" Type="nvarchar" MaxLength="350" />
+          <Property Name="expertAchievement" Type="nvarchar" MaxLength="1200" />
+          <Property Name="addTime" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="2" />
+          <Property Name="birthdate" Type="smalldatetime" />
+          <Property Name="telphone" Type="varchar" MaxLength="16" />
+          <Property Name="email" Type="varchar" MaxLength="30" />
+          <Property Name="qqNum" Type="varchar" MaxLength="20" />
+          <Property Name="weiChat" Type="varchar" MaxLength="50" />
+          <Property Name="mailingAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="userName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="passWord" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="30" />
+          <Property Name="department" Type="nvarchar" MaxLength="30" />
+          <Property Name="limit" Type="int" />
+          <Property Name="entryDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="StorageStatus">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="beStatus" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UnitProperty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unitProperties" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="seeiExpertsDBModelStoreContainer">
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpertBankInfo" EntityType="Self.ExpertBankInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpertExperience" EntityType="Self.ExpertExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experts" EntityType="Self.Experts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageStatus" EntityType="Self.StorageStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitProperty" EntityType="Self.UnitProperty" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="seeiExpertsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StorageStatu">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="beStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UnitProperty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unitProperties" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="seeiExpertsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StorageStatus" EntityType="Self.StorageStatu" />
+          <EntitySet Name="UnitProperties" EntityType="Self.UnitProperty" />
+          <EntitySet Name="ExpertBankInfoes" EntityType="seeiExpertsDBModel.ExpertBankInfo" />
+          <EntitySet Name="ExpertExperiences" EntityType="seeiExpertsDBModel.ExpertExperience" />
+          <EntitySet Name="Experts" EntityType="seeiExpertsDBModel.Expert" />
+          <EntitySet Name="Staffs" EntityType="seeiExpertsDBModel.Staff" />
+          <EntitySet Name="Documents" EntityType="seeiExpertsDBModel.Document" />
+        </EntityContainer>
+        <EntityType Name="ExpertBankInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serialId" Type="String" Nullable="false" MaxLength="17" FixedLength="true" Unicode="false" />
+          <Property Name="accountName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="acountNumber" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="bankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExpertExperience">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serialId" Type="String" Nullable="false" MaxLength="17" FixedLength="true" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pdffiles" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Expert">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eId" Type="String" MaxLength="17" FixedLength="true" Unicode="false" />
+          <Property Name="eName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="birthDay" Type="DateTime" Precision="0" />
+          <Property Name="identityNumber" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Name="unitProperty" Type="Int32" />
+          <Property Name="UnitDetailsOne" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UnitDetailsTwo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UnitDetailsThree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="academicTitles" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="field" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="officePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cellPphone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="postalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="expertSources" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="beStatus" Type="Int32" />
+          <Property Name="img" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="personalUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Categories" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="registrationForm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="appointmentBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNum" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="expertIntroduction" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="expertworkingExperience" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="expertAchievement" Type="String" MaxLength="1200" FixedLength="false" Unicode="true" />
+          <Property Name="addTime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="birthdate" Type="DateTime" Precision="0" />
+          <Property Name="telphone" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="qqNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="weiChat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailingAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="passWord" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="limit" Type="Int32" />
+          <Property Name="entryDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="exlId" />
+          </Key>
+          <Property Name="exlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="downloadLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="uploadTime" Type="DateTime" Precision="0" />
+          <Property Name="uploader" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="downloadCounts" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="seeiExpertsDBModelStoreContainer" CdmEntityContainer="seeiExpertsDBEntities">
+          <EntitySetMapping Name="StorageStatus">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.StorageStatu">
+              <MappingFragment StoreEntitySet="StorageStatus">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="beStatus" ColumnName="beStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitProperties">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.UnitProperty">
+              <MappingFragment StoreEntitySet="UnitProperty">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="unitProperties" ColumnName="unitProperties" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertBankInfoes">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.ExpertBankInfo">
+              <MappingFragment StoreEntitySet="ExpertBankInfo">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="acountNumber" ColumnName="acountNumber" />
+                <ScalarProperty Name="accountName" ColumnName="accountName" />
+                <ScalarProperty Name="serialId" ColumnName="serialId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertExperiences">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.ExpertExperience">
+              <MappingFragment StoreEntitySet="ExpertExperience">
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="pdffiles" ColumnName="pdffiles" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="serialId" ColumnName="serialId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Experts">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.Expert">
+              <MappingFragment StoreEntitySet="Experts">
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+                <ScalarProperty Name="expertAchievement" ColumnName="expertAchievement" />
+                <ScalarProperty Name="expertworkingExperience" ColumnName="expertworkingExperience" />
+                <ScalarProperty Name="expertIntroduction" ColumnName="expertIntroduction" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="appointmentBook" ColumnName="appointmentBook" />
+                <ScalarProperty Name="registrationForm" ColumnName="registrationForm" />
+                <ScalarProperty Name="Categories" ColumnName="Categories" />
+                <ScalarProperty Name="personalUrl" ColumnName="personalUrl" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="beStatus" ColumnName="beStatus" />
+                <ScalarProperty Name="expertSources" ColumnName="expertSources" />
+                <ScalarProperty Name="postalAddress" ColumnName="postalAddress" />
+                <ScalarProperty Name="cellPphone" ColumnName="cellPphone" />
+                <ScalarProperty Name="officePhone" ColumnName="officePhone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="field" ColumnName="field" />
+                <ScalarProperty Name="academicTitles" ColumnName="academicTitles" />
+                <ScalarProperty Name="UnitDetailsThree" ColumnName="UnitDetailsThree" />
+                <ScalarProperty Name="UnitDetailsTwo" ColumnName="UnitDetailsTwo" />
+                <ScalarProperty Name="UnitDetailsOne" ColumnName="UnitDetailsOne" />
+                <ScalarProperty Name="unitProperty" ColumnName="unitProperty" />
+                <ScalarProperty Name="identityNumber" ColumnName="identityNumber" />
+                <ScalarProperty Name="birthDay" ColumnName="birthDay" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="eName" ColumnName="eName" />
+                <ScalarProperty Name="eId" ColumnName="eId" />
+                <ScalarProperty Name="sId" ColumnName="sId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="passWord" ColumnName="passWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="mailingAddress" ColumnName="mailingAddress" />
+                <ScalarProperty Name="weiChat" ColumnName="weiChat" />
+                <ScalarProperty Name="qqNum" ColumnName="qqNum" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telphone" ColumnName="telphone" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sId" ColumnName="sId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="seeiExpertsDBModel.Document">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="downloadCounts" ColumnName="downloadCounts" />
+                <ScalarProperty Name="uploader" ColumnName="uploader" />
+                <ScalarProperty Name="uploadTime" ColumnName="uploadTime" />
+                <ScalarProperty Name="downloadLink" ColumnName="downloadLink" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="exlId" ColumnName="exlId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

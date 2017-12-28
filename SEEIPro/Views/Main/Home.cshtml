@@ -1,0 +1,382 @@
+﻿@{
+    ViewBag.Title = "南方教育装备创新研究院";
+    Layout = "~/Views/Shared/_LayoutPageMainPage.cshtml";
+}
+
+<link href="~/Content/css/edslider.css" rel="stylesheet" />
+<link href="~/Content/css/edsliderstyle.css" rel="stylesheet" />
+<link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/magicbox.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+<script src="~/Scripts/jquery.edslider.js"></script>
+
+<script src="~/Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Scripts/grid-to-carousel.js"></script>
+
+<script type="text/javascript">
+    var title = document.title + ",欢迎您！";
+    var step = 0;
+    function rollTitle() {
+        //根据时间每次将切割后前面的字加到后面，直到step比标题个数还大，重新开始
+        document.title = title.substring(step, title.length) + title.substring(0, step);
+        step++;
+        if (step > title.length) step = 0
+        setTimeout("rollTitle()", 300);
+    }
+    rollTitle();//调用函数
+
+    /*    2017.10.23
+     *   jQuery Plugins imgFloat v1011
+     *   speed //Ԫspeed
+     *   xPos  //Ԫx距离
+     *   yPos  //Ԫy距离
+     *   $('#div1').imgFloat({speed:30,xPos:10,yPos:10});
+     *   $('#div2').imgFloat();   //默认speed:15,xPos:0,yPos:0��
+     */
+
+    (function ($) {
+        jQuery.fn.imgFloat = function (options) {
+            var own = this;
+            var xD = 0;
+            var yD = 0;
+            var i = 1;
+            var settings = {
+                speed: 15,
+                xPos: 0,
+                yPos: 0
+            };
+            jQuery.extend(settings, options);
+            var ownTop = settings.xPos;
+            var ownLeft = settings.yPos;
+            own.css({
+                position: "absolute",
+                cursor: "pointer"
+            });
+            function imgPosition() {
+                var winWidth = $(window).width() - own.width();
+                var winHeight = $(window).height() - own.height();
+                if (xD == 0) {
+                    ownLeft += i;
+                    own.css({
+                        left: ownLeft
+                    });
+                    if (ownLeft >= winWidth) {
+                        ownLeft = winWidth;
+                        xD = 1;
+                    }
+                }
+                if (xD == 1) {
+                    ownLeft -= i;
+                    own.css({
+                        left: ownLeft
+                    });
+                    if (ownLeft <= 0) xD = 0;
+                }
+                if (yD == 0) {
+                    ownTop += i;
+                    own.css({
+                        top: ownTop
+                    });
+                    if (ownTop >= winHeight) {
+                        ownTop = winHeight;
+                        yD = 1;
+                    }
+                }
+                if (yD == 1) {
+                    ownTop -= i;
+                    own.css({
+                        top: ownTop
+                    });
+                    if (ownTop <= 0) yD = 0;
+                }
+            }
+            var imgHover = setInterval(imgPosition, settings.speed);
+            own.hover(function () {
+                clearInterval(imgHover);
+            },
+            function () {
+                imgHover = setInterval(imgPosition, settings.speed);
+            });
+        }
+    })(jQuery);
+
+</script>
+
+<script type="text/javascript">
+    //Graphic play
+    $(document).ready(function () {
+        $('.mySlideshow').edslider({
+            width: '100%',
+            heght: '600'
+        });
+    });
+    //The magic box
+    $(function () {
+        $('.features-container').gridToCarousel();
+    });
+
+</script>
+
+
+<!--Graphic play -->
+<div class="imgcontainer">
+    <ul class="mySlideshow">
+        <li class="first">
+            <span class="animated fadeInLeft">
+                2017第二届中国制造2025与人工智能大会
+            </span>
+            <div class="animated fadeInRight">
+                &nbsp;&nbsp;“中国制造2025”与“德国工业4.0”对接，为两国合作打造新动能，促进中国人工智能和机械制造的发展，提升珠海市装备产业的“智造”水平、促进珠海市产业技术的提高，由珠海（国家）高新技术产业开发区主办、珠海市四维时代网络科技有限公司和珠海市高新建设投资有限公司联合承办的“2017第二届中国制造2025与人工智能大会”于9月13日在珠海市度假村酒店盛大召开。
+            </div>
+        </li>
+        <li class="second">
+            <span class="animated fadeInLeft">
+                机器人进行焊接
+            </span>
+            <div class="animated fadeInRight">&nbsp;&nbsp; 第六届焊接博览会于2006年9月12日--15日,在广州锦汉展览中心举行</div>
+        </li>
+        <li class="third">
+            <span class="animated fadeInLeft">
+                李立欣副区长发言
+            </span>
+            <div class="animated fadeInRight">&nbsp;&nbsp; 教育部教育装备研究与发展中心现代教育装备 创新与应用实验区及评估中心签约仪式</div>
+        </li>
+        <li class="fourth">
+            <span class="animated fadeInLeft">3D打印（VR、AR）技术教育教学应用实验区</span>
+            <div class="animated fadeInRight">&nbsp;&nbsp; 7月22日，就实验区今后的建设工作，教育部教育装备研究与发展中心与蓬江区政府、蓬江区教育局、南方教育装备创新产业城和南方教育装备创新研究院进行了“3D打印（VR、AR）技术教育教学应用实验区建设项目”研讨会。</div>
+        </li>
+        <li class="fifth">
+            <span class="animated fadeInLeft">
+                人工智能改变世界
+            </span>
+            <div class="animated fadeInRight">&nbsp;&nbsp; 中国人工智能初创公司挑战赛”旨在寻找中国AI新兴初创企业的最强音——鼓励中国初创公司，展现他们在人工智能等计算领域的研发成果，对优秀者给予技术、产品或资金方面的支持。</div>
+        </li>
+    </ul>
+</div>
+
+<!--about us-->
+<div class="div_about">
+    <div class="about_wrap">
+        <!--left-->
+        <div class="about_container about_left" style="background:url(../../Content/images/yjy.jpg) center no-repeat ;background-size:cover">
+
+        </div>
+
+        <!--right-->
+        <div class="about_container about_right">
+            <h2>关于研究院<span class="Subtext">/About us</span></h2>
+            <span style="margin-top:5px;width:100px; height:1px; border-bottom:1px solid #cecece;border-bottom-width:1px; overflow:hidden"></span>
+            <div class="about_content">
+                <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;南方教育装备创新研究院，是
+                    <strong style="font-family:'Microsoft YaHei'">
+                        南方教育装备创新产业城创新驱动的核心支撑部分
+                    </strong>，是在
+                    <strong style="font-family:'Microsoft YaHei'">
+                        教育部教育装备研究与发展中心
+                    </strong>的指导与支持下，采取政府、高校、企业等多部门协同创新的方式，建设的一所集教育装备技术研发、产品检测、人才培养和产业孵化为一体的教育装备新型研发机构。
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--about us end-->
+<!--The magic box-->
+<div class="magicbox">
+    <div class="headcontainer"><h2 class="headtitle">六大核心业务<span class="Subtext">/Core business</span></h2></div>
+    <div class="container pd50">
+        <div class="features">
+            <div class="features-container">
+                <div id="carousel-example-generic" class="hidden carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <div class="content content-green">
+                                <span class="close-btn">✕</span>
+                                <img class="feature-img" src="~/Content/images/feature-img.jpg">
+                                <h2>产品检测平台</h2>
+                                <p>
+                                    隶属于<span class="highlight-yellow">
+                                        南方教育装备产业城
+                                    </span>，由<strong>教育部教育装备研究与发展中心</strong> 的指导，江门市政府、蓬江区政府和广东珠西智谷投资有限公司支持建设的
+                                    <span class="highlight-yellow">现代教育装备产品检测评估中心</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-yellow">
+                                <span class="close-btn">✕</span>
+                                <h2>人才服务平台</h2>
+                                <p>打造教育装备高层次应用型人才培养示范基地，为教育装备产业发展输送高端专业人才</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-white">
+                                <span class="close-btn">✕</span>
+                                <h2>技术服务平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产业创新发展课题中心，解决教育装备产业发展中的共性技术问题</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-grey">
+                                <span class="close-btn">✕</span>
+                                <h2>创新创业服务平台</h2>
+                                <p>打造教育装备众创空间，引进创新创业型项目，为创业团队提供金融技术与创业辅导</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-red">
+                                <span class="close-btn">✕</span>
+                                <h2>应用平台</h2>
+                                <p>搭建研究院教育装备应用能力培训平台，提升教师对信息化教育装备场频发展的认识水平与应用能力</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-white-green">
+                                <span class="close-btn">✕</span>
+                                <h2>南方教育装备产业城</h2>
+                                <p>研究院是南方教育装备产业城的核心支撑部分</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!--grid box-->
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-green">
+                                <h2>产品检测平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产品检测评估中心</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-yellow">
+                                <h2>人才服务平台</h2>
+                                <p>打造教育装备高层次应用型人才培养示范基地，为教育装备产业发展输送高端专业人才</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-6">
+                            <div class="content content-white">
+                                <img src="~/Content/images/united-icon.png" alt="暂无图片">
+                                <h2>技术服务平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产业创新发展课题中心，解决教育装备产业发展中的共性技术问题</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-6">
+                            <div class="content content-grey">
+                                <img src="~/Content/images/browser-icon.jpg" alt="暂无图片">
+                                <h2>创新创业服务平台</h2>
+                                <p>打造教育装备众创空间，引进创新创业型项目，为创业团队提供金融技术与创业辅导</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-red">
+                                <h2>应用平台</h2>
+                                <p>搭建研究院教育装备应用能力培训平台，提升教师对信息化教育装备场频发展的认识水平与应用能力</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-white-green">
+                                <h2>南方教育装备产业城</h2>
+                                <p>研究院是南方教育装备产业城的核心支撑部分</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!--The magic box end-->
+<!--latest news-->
+<div class="new-container">
+    <h2>最新资讯<span class="Subtext">/Latest news</span></h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <img class="img-circle" src="~/Content/images/n1.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>全国首个教育装备体验中心在江门启动</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 11月3日上午，中国教育装备体验中心动工仪式在蓬江区双龙大道42号举行。作为蓬江区重大项目签约奠基投产发展成果展示活动的环市分会场，活动向社会展示了蓬江区近年产业建设及项目成果、珠西智谷项目进展情况、以及教育装备产业的重要发展项目——中国教育装备体验中心。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="~/Content/images/n2.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 10月26日，北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城，并与蓬江区教育局、南方教育装备创新研究院开展座谈会。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="~/Content/images/n3.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>2000名小创客来袭，燃爆南方教育装备创新产业城</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 11月4日上午9点，江门市蓬江区环市街小学“奇思妙想 创乐无限”创客嘉年华于南方教育装备创新产业城顺利拉开帷幕，环市街2000名小创客在南方教育装备创新产业城内“斗”创意，晒作品。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+</div>
+<!--latest news end-->
+<!--Links-->
+<div class="links_wrap">
+    <div class="content_wrap">
+        <div class="info_wrap link_content">
+            <span>友情链接</span>
+            <div class="all_links">
+                <a href="http://www.zbzx.edu.cn/" target="_blank" title="点击前往教育部教育装备研究与发展中心">教育部教育装备研究与发展中心</a>
+                &nbsp; |  &nbsp; <a href="http://www.pjq.gov.cn/" target="_blank" title="点击前往蓬江区政府">江门市蓬江区人民政府</a>
+                &nbsp; | &nbsp;<a href="http://jyj.jiangmen.gov.cn" target="_blank" title="点击前往江门市教育局">江门市教育局</a>
+                &nbsp; | &nbsp;<a href="http://ldj.jiangmen.gov.cn" target="_blank" title="点击前往江门市人力资源和社会保障局">江门市人力资源和社会保障局</a>
+                &nbsp; | &nbsp;<a href="http://www.gidichina.org/" target="_blank" title="点击前往顺德创新设计研究院">顺德创新设计研究院</a>
+                &nbsp; | &nbsp;<a href="http://www.edueic.com/" target="_blank" title="点击前往南方教育装备创新产业城官网">南方教育装备创新产业城</a>
+                &nbsp; | &nbsp;<a href="http://www.wyu.edu.cn/" target="_blank" title="点击前往五邑大学">五邑大学</a>
+            </div>
+        </div>
+        <div class="info_wrap contact_content">
+            <span>联系我们</span>
+            <table class="tb_addr">
+                <tr><td><i class="glyphicon glyphicon-phone-alt"></i>0750-3699695</td> </tr>
+                <tr><td><i class="glyphicon glyphicon-envelope"></i>jyzbyjy@126.com</td></tr>
+                <tr><td><i class="glyphicon glyphicon-map-marker"></i>广东省江门市蓬江区群华路15号5栋二层</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--Links end-->
+<!--float-->
+<div id="imgf" style="z-index:9999;">
+    <a class="link_to_content"><i class="glyphicon glyphicon-time"></i> 上线倒计时：118天</a>
+    <span class="re_set" title="Close"><i class="glyphicon glyphicon-remove"></i></span>
+</div>
+<script type="text/javascript">
+    /*********浮动框2017.2.2***************/
+    $("#imgf").imgFloat({ speed: 15, xPos: 10, yPos: 10 });
+    $(".re_set").click(function () {
+        $("#imgf").css("display", "none");
+    });
+</script>

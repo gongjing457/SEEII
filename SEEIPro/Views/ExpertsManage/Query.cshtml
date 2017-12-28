@@ -1,0 +1,51 @@
+﻿@model PagedList.PagedList<Expert>
+@{
+    ViewBag.Title = "专家信息查询";
+    Layout = "~/Views/Shared/_LayoutPageExpertsManagement.cshtml";
+}
+@using SEEIPro.Models;
+@using PagedList.Mvc;
+
+<link href="~/Content/css/PagedList.css" rel="stylesheet" />
+<link href="~/Content/css/QueryForExpert.css" rel="stylesheet" />
+<div class="div_content">
+    查询到相关的专家信息如下：
+    <table class="tb_querylist">
+        <thead>
+            <tr>
+                <td>专家编号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>单位名称</td>
+                <td>技术职称</td>
+                <td>入库状态</td>
+                <td>业务范围</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Expert expert in Model)
+            {
+                <tr>
+                    <td>@expert.eId</td>
+                    <td>@expert.eName</td>
+                    <td>@expert.gender</td>
+                    <td>@expert.UnitDetailsOne</td>
+                    <td>@expert.academicTitles</td>
+                    <td>
+                        @foreach (StorageStatu status in @ViewBag.StatusList as List<StorageStatu>)
+                        {
+                            if (expert.beStatus == status.sid)
+                            {
+                                @status.beStatus
+                            }
+                        }
+                    </td>
+                    <td>@expert.Categories</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+    @Html.PagedListPager(Model, page => Url.Action("Query", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 })
+</div>

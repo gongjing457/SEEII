@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "学术平台";
+    Layout = "~/Views/Shared/_LayoutPageMainPage.cshtml";
+}
+
+<link href="~/Content/css/Common.css" rel="stylesheet" />
+<script type="text/javascript">
+    //同域内Iframe高度自适应
+    function reinitIframe() {
+        var iframe = document.getElementById("framecontainer");
+        try {
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        } catch (ex) { }
+    }
+    window.setInterval("reinitIframe()", 200);
+</script>
+
+<div class="mid-banner"></div>
+<div class="mainbox">
+    <div class="navgiation_left">
+
+        <ul class="nav-column">
+            <li><a href="@Url.Action("HigherEducation", "Communicate")" title="高教学会合作">高教学会合作</a></li>
+            <li><a class="on" href="@Url.Action("Academic", "Communicate")" title="学术平台">学术平台</a></li>
+            <li><a href="@Url.Action("College", "Communicate")" title="合作院校">合作院校</a></li>
+        </ul>
+    </div>
+    <div class="content_right">
+        <iframe id="framecontainer" src="@Url.Action("Academy", "Communicate")" frameborder="0" scrolling="no" style="width:100%;min-height:800px; margin:0 auto;"></iframe>
+    </div>
+    <div class="clearfix"></div>
+</div>

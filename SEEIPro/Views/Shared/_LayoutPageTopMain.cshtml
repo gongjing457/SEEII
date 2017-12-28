@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>南方教育装备创新研究院</title>
+    <link type="image/x-icon" rel="icon" href="~/Content/images/favico.ico" />
+    <link href="~/Content/css/floatpanelstyle.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div-top {
+            margin: 0 auto;
+            width: 80%;
+            min-width: 1000px;
+            height: 200px;
+            background-image: url(../../Content/images/top.jpg);
+            background-size: cover;
+            background-position: center center;
+        }
+
+            .div-top .sp_title {
+                color: white;
+                font-size: larger;
+                float: left;
+                padding-top: 40px;
+                padding-left: 30px;
+            }
+
+            .div-top .sp_content {
+                color: white;
+                font-size: 16px;
+                float: right;
+                margin-right: 20px;
+                padding-top: 160px;
+            }
+
+        table {
+            margin: 0 auto;
+            width: 100%;
+            min-width: 1000px;
+            height: 100%;
+            text-align: center;
+            font-family: "微软雅黑";
+            font-size: 18px;
+        }
+
+            table a {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+                table a:hover {
+                    background-color: #DCDCDC;
+                    color: orangered;
+                    border-bottom: inset blue 1px;
+                }
+
+        .div_middle {
+            margin: 0 auto;
+            width: 80%;
+            min-width: 1000px;
+            height: 40px;
+        }
+
+        .div_content {
+            margin-top: 0px;
+            margin: 0 auto;
+            width: 80%;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script>
+        var title = document.title + ",欢迎您！";
+        var step = 0;
+        function rollTitle() {
+            //根据时间每次将切割后前面的字加到后面，直到step比标题个数还大，重新开始
+            document.title = title.substring(step, title.length) + title.substring(0, step);
+            step++;
+            if (step > title.length) step = 0
+            setTimeout("rollTitle()", 300);
+        }
+        rollTitle();//调用函数
+
+    </script>
+</head>
+<body>
+
+    @*top*@
+    <div class="div-top">
+        <span class="sp_title">南方教育装备产业发展智库</span>
+
+        <span class="sp_content">SEEII南方教育装备创新研究院  主办</span>
+    </div>
+
+    <div class="div_middle">
+        <table>
+            <tr>
+                <td><a href="@Url.Action("HomePage", "EEmain")" t title="智库首页">智库首页</a></td>
+
+                <td><a href="#" title="智库要闻">智库要闻</a></td>
+                <td><a href="#" title="论坛活动">论坛活动</a></td>
+                <td><a href="#" title="观点与实践">观点与实践</a></td>
+                <td><a href="@Url.Action("ExpertProfile", "EEmain")" t title="专家风采">智库专家</a></td>
+                <td><a href="#" title="成果发布">成果发布</a></td>
+                <td><a href="@Url.Action("Login", "Backstage")" target="_blank" title="数据中心">数据中心</a></td>
+                <td><a href="@Url.Action("Home","Main")" title="返回官网">返回官网</a></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--浮动面板-->
+    <script type="text/javascript">
+
+        $(function () {
+
+            // 页面浮动面板
+            $("#floatPanel > .ctrolPanel > a.arrow").eq(0).click(function () { $("html,body").animate({ scrollTop: 0 }, 800); return false; });
+
+            var objPopPanel = $("#floatPanel > .popPanel");
+            var w = objPopPanel.outerWidth();
+            $("#floatPanel > .ctrolPanel > a.qrcode").bind({
+                mouseover: function () {
+                    objPopPanel.css("width", "0px").show();
+                    objPopPanel.animate({ "width": w + "px" }, 300); return false;
+                },
+                mouseout: function () {
+                    objPopPanel.animate({ "width": "0px" }, 300); return false;
+                    objPopPanel.css("width", w + "px");
+                }
+            });
+        });
+    </script>
+
+    <div id="floatPanel">
+        <div class="ctrolPanel">
+            <a class="arrow" href="#" title="点击返回顶部"><span>顶部</span></a>
+            <a class="contact" title="反馈留言" href="https://shimo.im/sheet/fJjpA6Gjt9c0Msvx?r=ODJXER/「2017年度反馈单」" target="_blank"><span>反馈</span></a>
+            <a class="qrcode" href="#" title="请扫描二维码添加关注"><span>微信</span></a>
+
+        </div>
+        <div class="popPanel">
+            <div class="popPanel-inner">
+                <div class="qrcodePanel">
+                    <img src="~/Content/images/weixin.jpg" /><span>获取更多精彩，请扫码关注！</span>
+                </div>
+                <div class="arrowPanel">
+                    <div class="arrow01">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--浮动面板-->
+
+    <div class="div_content">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

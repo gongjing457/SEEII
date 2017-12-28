@@ -1,0 +1,374 @@
+﻿@{
+    ViewBag.Title = "添加新入库专家信息";
+    Layout = "~/Views/Shared/_LayoutPageExpertsManagement.cshtml";
+}
+
+@using SEEIPro.Models;
+<link href="~/Content/css/AddExperts.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+
+    var total = 1;
+
+    $(function () {
+
+        var maxBox = 2;
+        //1.预览图片
+        $("#imgFile").on("change", function () {
+            var file = this.files[0];
+            if (this.files && file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#imgExpert").attr("src", e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+
+        });
+
+        //2.click添加input
+
+        //2.1添加文本框
+        var btnadd = $("#btnAdd");
+        btnadd.click(function () {
+            addspot();
+        });
+
+        function addspot() {
+            if (total <= maxBox) {
+                total++;
+                alert("添加id=eUnit" + total);
+                var trobj = document.createElement("tr");
+                trobj.className = "trtmp";
+                trobj.innerHTML = "<td>单位名称(可选)</td> <td><input id='eUnit" + total
+                    + "' type='text' title='请输入工作单位！' /></td><td>部门</td><td><input id='eDepart" + total
+                    + "' type='text' title='请输入部门名称！'/></td><td>职务</td><td><input id='ePosition" + total
+                    + "' type=text title=请输入单位职务！/></td><td><a  href='#' onclick='delspot(this);'title='点击删除此条记录！'>&#10006</a></td>"
+                $("#tbspot").append(trobj);
+            }
+        }
+
+        //3.保存信息
+        $("#btn_save").click(function () {
+            //1.取值
+
+            var eName = $.trim($("#eName").val());
+            var eGender = $.trim($("#eGender").val());
+            var eId = $.trim($("#eId").val());
+            var identity = $.trim($("#identity").val());
+            var eRemark = $.trim($("#eRemark").val());
+
+            var birthDay = $.trim($("#birthDay").val());
+
+            var eTitles = $.trim($("#eTitles").val());
+            var eTelphone = $.trim($("#eTelphone").val());
+            var eCellPhone = $.trim($("#eCellPhone").val());
+
+            var eUnitProperty = $.trim($("#eUnitProperty").val());
+
+            var eUDP1 = $.trim($("#eUnit").val()) + " " + $.trim($("#eDepart").val()) + " " + $.trim($("#ePosition").val());
+            var eUDP2 = $.trim($("#eUnit2").val()) + " " + $.trim($("#eDepart2").val()) + " " + $.trim($("#ePosition2").val());
+            var eUDP3 = $.trim($("#eUnit3").val()) + " " + $.trim($("#eDepart3").val()) + " " + $.trim($("#ePosition3").val());
+
+            var ePostalAddress = $.trim($("#ePostalAddress").val());
+            var email = $.trim($("#email").val());
+            var eExpertSources = $.trim($("#eExpertSources").val());
+            var eField = $.trim($("#eField").val());
+            var ePersonalUrl = $.trim($("#ePersonalUrl").val());
+            var eStatus = $.trim($("#eStatus").val());
+            var Categories = getCategories();
+            var imgName = $("#imgFile").val();
+
+            var expertIntroduction = $.trim($("#txtExpertIntroduction").val());
+            var expertworkingExperience = $.trim($("#txtExpertworkingExperience").val());
+            var expertAchievement = $.trim($("#txtExpertAchievement").val());
+
+
+            var check = /^[A-Za-z0-9]{17}$/; ///^.{20}$/
+
+            //2.判断空
+            if (eId == "" || eId == null) {
+                alert("专家编号不能为空！");
+            } else if (!check.test(eId)) {
+                alert("专家编号格式不正确,请参考具体编码规则！");
+            } else if (eName == "" || eName == null) {
+                alert("专家姓名为空！");
+            } else if (eGender == "" || eGender == null) {
+                alert("性别不能为空！");
+            } else if (imgName == "" || imgName == null) {
+                alert("请选择专家照片！");//
+            } else if (eUnitProperty == "" || eUnitProperty == null) {
+                alert("单位性质不能为空！");
+            } else if (eTitles == "" || eTitles == null) {
+                alert("技术职称不能为空！");
+            } else if (eStatus == "" || eStatus == null) {
+                alert("入库状态不能为空！");
+            } else if (!($("#ckCategories1").is(':checked') ||
+                $("#ckCategories1").is(':checked') || $("#ckCategories2").is(':checked') ||
+                $("#ckCategories3").is(':checked') || $("#ckCategories4").is(':checked') ||
+                $("#ckCategories5").is(':checked') || $("#ckCategories6").is(':checked') ||
+                $("#ckCategories7").is(':checked'))) {
+
+                alert("请选择专家业务分类！");
+            }
+            else {
+
+                var formData = new FormData();
+                formData.append("imgFile", $(".imgFile")[0].files[0]);
+
+                //3.1上传专家图像
+                $.ajax({
+                    type: "POST",
+                    url: "/ExpertsManage/SaveExpertImg?t=new Date().getTime()",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        if (result == "ok") {
+                            //3.2提交专家信息
+                            ////////////////////////////////////
+                            $.ajax({
+                                type: "POST",
+                                url: "/ExpertsManage/SaveExpert?t=new Date().getTime()",
+                                data: {
+                                    "eId": eId,
+                                    "eName": eName,
+                                    "gender": eGender,
+                                    "imgName": getFileName(imgName),
+                                    "birthDay": birthDay,
+                                    "identityNumber": identity,
+                                    "unitProperty": eUnitProperty,
+                                    "unitOne": eUDP1,
+                                    "unitTwo": eUDP2,
+                                    "unitThree": eUDP3,
+                                    "academicTitles": eTitles,
+                                    "field": eField,
+                                    "email": email,
+                                    "officePhone": eTelphone,
+                                    "cellPphone": eCellPhone,
+                                    "postalAddress": ePostalAddress,
+                                    "expertSources": eExpertSources,
+                                    "beStatus": eStatus,
+                                    "personalUrl": ePersonalUrl,
+                                    "Categories": Categories,
+                                    "expertIntroduction": expertIntroduction,
+                                    "expertworkingExperience": expertworkingExperience,
+                                    "expertAchievement": expertAchievement,
+                                    "remark": eRemark
+                                },
+                                dataType: 'text',
+                                success: function (result) {
+                                    if (result == 'success') {
+                                        alert("专家" + eName + "的所有信息已保存成功！");
+                                        window.location = "/ExpertsManage/Index";
+                                    }
+                                    else {
+                                        alert("保存失败，请稍后重试！");
+                                    }
+                                },
+                                error: function (xhr) {
+                                    alert("保存失败，请稍后重试！当前请求的状态为:" + xhr.readyState);
+                                }
+                            });
+                            ///////////////////////////////////////////
+                        }
+                        else {
+                            alert("图片文件保存失败，请稍后重试！");
+                        }
+                    },
+                    error: function () {
+                        alert("保存失败，请稍后重试！");
+                    }
+                });
+            }
+        });
+
+        $("#btn_cancel").click(function () {
+            window.location = "/ExpertsManage/Add";
+        });
+        //获取专家业务分类信息
+        function getCategories() {
+            var category = "";
+            var obj = document.getElementsByClassName("checkbox");
+            for (var i = 0; i < obj.length; i++) {
+                if (obj[i].checked) {
+                    category += obj[i].value + ';'; //如果选中，将value添加到变量s中
+                }
+            }
+            return category;
+        }
+
+        //获取文件名
+        function getFileName(path) {
+            var test1 = path.lastIndexOf("/");  //对路径进行截取
+            var test2 = path.lastIndexOf("\\");  //对路径进行截取
+            var test = Math.max(test1, test2)
+            if (test < 0) {
+                return path;
+            } else {
+                return path.substring(test + 1); //赋值文件名
+            }
+        }
+    });
+
+    //2.2删除
+
+    function delspot(obj) {
+
+        var isDelete = confirm("确定删除？");
+        if (isDelete) {
+            var tr = obj.parentNode.parentNode;
+            var tbody = tr.parentNode;
+            tbody.removeChild(tr);
+            total--;
+        }
+    }
+
+
+</script>
+
+
+
+@*@using (Html.BeginForm("SaveExpert", "ExpertsManage", FormMethod.Post))
+    {*@
+<table class="tb_container">
+    <tr><td colspan="7">录入专家信息</td></tr>
+    @*第一行*@
+    <tr>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>姓名</td>
+        <td><input id="eName" type="text" class="textbox" title="请输入姓名！" /></td>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>性别</td>
+        <td>
+            <select id="eGender" class="datalist" title="请选择性别！">
+                <option value="未知">未知</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </td>
+        <td class="txtlabel">编号</td>
+        <td><input id="eId" type="text" class="textbox" title="专家编号17位，具体编码规则：第1-4位为年度代码，如“2016”；第5-7位为专业技术职务代码，如：教授“011”；第8位为研究院专家来源固定代码；第9-13位为单位代码；第14-17位为人员代码。" /></td>
+        <td rowspan="3">
+            <img id="imgExpert" class="expert_icon" src="~/Content/xiaoyicun/obama.jpg" alt="小一寸免冠" /><br />
+            @*<span><a href="#" title="点击前往详情页面查看专家信息">个人主页</a></span>*@
+            <input id="imgFile" class="imgFile" type="file" title="请选择专家图片" />
+        </td>
+
+    </tr>
+    @*第二行*@
+    <tr>
+        <td>出生日期</td>
+        <td><input id="birthDay" type="text" class="Wdate" title="请选择出生日期！" onclick="WdatePicker({  minDate: '1900-01-01', maxDate: '%y-%M-%d' })" /></td>
+        <td class="txtlabel">身份证号</td>
+        <td><input id="identity" type="text" class="textbox" title="请输入18位身份证号！" /></td>
+        <td>备注</td>
+        <td><input id="eRemark" type="text" class="textbox" title="如有其他特别情况请注明" value="无" /></td>
+    </tr>
+    @*第三行*@
+    <tr>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>技术职称</td>
+        <td><input id="eTitles" type="text" class="textbox" title="请输入技术职称！" /></td>
+        <td class="txtlabel">办公电话</td>
+        <td><input id="eTelphone" type="text" class="textbox" title="请输入办公电话！" /></td>
+        <td class="txtlabel">移动电话</td>
+        <td><input id="eCellPhone" type="text" class="textbox" title="请输入移动电话！" /></td>
+    </tr>
+    @*第四行*@
+    <tr>
+        <td colspan="7">
+            <table id="tbspot">
+                <tbody class="tbspot">
+                    <tr>
+                        <td><span class="errMsg" style="color:red">*</span>单位性质</td>
+                        <td>
+                            <select id="eUnitProperty" class="datalist" title="请选择单位性质(注：单位性质为所填第一个单位性质)！">
+                                @foreach (UnitProperty unit in @ViewBag.UnitList as List<UnitProperty>)
+                                {
+                                    <option value="@unit.id">@unit.unitProperties</option>
+                                }
+                            </select>
+                        </td>
+                        <td>单位名称</td>
+                        <td><input id="eUnit" type="text" title="请输入工作单位！" /></td>
+                        <td>部门</td>
+                        <td><input id="eDepart" type="text" title="请输入部门名称！" /></td>
+                        <td>职务</td>
+                        <td>
+                            <input id="ePosition" type="text" title="请输入单位职务！" />
+                        </td>
+                        <td>
+                            <a id="btnAdd" href="#" title="添加一条单位记录">添加</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+
+    </tr>
+
+    @*第五行*@
+    <tr>
+        <td class="txtlabel">邮箱</td>
+        <td><input id="email" type="text" class="textbox" title="请输入邮箱！" /></td>
+        <td class="txtlabel">专家来源</td>
+        <td><input id="eExpertSources" type="text" class="textbox" title="请输入专家来源！" /></td>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>入库状态</td>
+        <td>
+            <select id="eStatus" class="datalist" title="请选择入库状态!">
+                @foreach (StorageStatu status in @ViewBag.statusList as List<StorageStatu>)
+                {
+                    <option value="@status.sid">@status.beStatus</option>
+                }
+            </select>
+        </td>
+    </tr>
+    @*第六行*@
+    <tr>
+        <td class="txtlabel">从事领域</td>
+        <td><input id="eField" type="text" class="textbox" title="请输入所从事领域！" /></td>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>通讯地址</td>
+        <td><input id="ePostalAddress" type="text" class="textbox" title="请输入通讯地址！" /></td>
+        <td class="txtlabel">相关主页</td>
+        <td colspan="2">
+            <input id="ePersonalUrl" type="text" title="请输入专家个人主页！" />
+        </td>
+    </tr>
+    @*第七行*@
+    <tr>
+        <td class="txtlabel"><span class="errMsg" style="color:red">*</span>业务分类</td>
+        <td colspan="6" style="text-align:left">
+            <input id="ckCategories1" name="Categories" class="checkbox" type="checkbox" value="①规划产业发展方向与战略" /><label title="①规划产业发展方向与战略" for="ckCategories1">①规划产业发展方向与战略</label>
+            <input id="ckCategories2" name="Categories" class="checkbox" type="checkbox" value="②技术引进与研发" /><label title="②技术引进与研发" for="ckCategories2">②技术引进与研发</label>
+            <input id="ckCategories3" name="Categories" class="checkbox" type="checkbox" value="③技术指导与咨询" /><label title="③技术指导与咨询" for="ckCategories3">③技术指导与咨询</label><br />
+            <input id="ckCategories4" name="Categories" class="checkbox" type="checkbox" value="④赛事评审、科技评估" /><label title="④赛事评审、科技评估" for="ckCategories4">④赛事评审、科技评估</label>
+            <input id="ckCategories5" name="Categories" class="checkbox" type="checkbox" value="⑤人才引进与培养" /><label title="⑤人才引进与培养" for="ckCategories5">⑤人才引进与培养</label>
+            <input id="ckCategories6" name="Categories" class="checkbox" type="checkbox" value="⑥制定教育装备共性标准" /><label title="⑥制定教育装备共性标准" for="ckCategories6">⑥制定教育装备共性标准</label>
+            <input id="ckCategories7" name="Categories" class="checkbox" type="checkbox" value="⑦提供创新创业服务" /><label title="⑦提供创新创业服务" for="ckCategories7">⑦提供创新创业服务</label>
+        </td>
+
+    </tr>
+    <tr><td colspan="2">个人简介（请写清主要管理业务、研究方向）（300字以内）：</td><td colspan="5"><textarea id="txtExpertIntroduction" class="multitext">没有任何业务及研究方向！</textarea></td></tr>
+    <tr><td colspan="2">主要工作简历（300字以内）：</td><td colspan="5"><textarea id="txtExpertworkingExperience" class="multitext">没有任何工作经历！</textarea></td></tr>
+    <tr><td colspan="2">主要工作业绩（包括承担项目、成果、专利、著作、论文、研究报告、获奖情况等）（1000字以内）：</td><td colspan="5"><textarea id="txtExpertAchievement" class="multitext">没有任何业绩！</textarea></td></tr>
+    @*<tr>
+            <td colspan="4">
+
+                <input id="uploadRegistrationFile" name="uploadRegistrationFile" type="file"  accept="application/pdf" class="file" />
+                <input id="btnUploaddFile1" title="点击上传登记表" class="button2" type="submit" value="上传登记表" />
+
+
+            </td>
+            <td colspan="3">
+                <input id="uploadAppointmentFile" type="file"  accept="application/pdf" class="file" />
+                <input id="btnUploadFile2" type="button" class="button2" value="上传聘书" title="点击上传聘任书" />
+            </td>
+        </tr>*@
+    <tr class="tr_submit">
+        <td colspan="7">
+            <input id="btn_save" class="button" type="button" title="点击保存专家信息" value="保存" />
+            <input id="btn_cancel" class="button" type="button" title="清空已填信息" value="清空" />
+        </td>
+    </tr>
+</table>
+@*}*@
+

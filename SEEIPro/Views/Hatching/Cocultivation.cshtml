@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "高校联合培养";
+    Layout = "~/Views/Shared/_LayoutPageMainPage.cshtml";
+}
+
+<link href="~/Content/css/Common.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    //同域内Iframe高度自适应
+    function reinitIframe() {
+        var iframe = document.getElementById("frame-container");
+        try {
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        } catch (ex) { }
+    }
+    window.setInterval("reinitIframe()", 200);
+</script>
+
+<div class="mid-banner"></div>
+<div class="mainbox">
+    <div class="navgiation_left">
+        <ul class="nav-column">
+            <li><a href="@Url.Action("eCollege", "Hatching")" title="教育装备学院">教育装备学院</a></li>
+            <li><a href="@Url.Action("Training", "Hatching")" title="培训中心">培训中心</a></li>
+            <li><a class="on" href="@Url.Action("Cocultivation", "Hatching")" title="高校联合培养">高校联合培养</a></li>
+            <li><a href="@Url.Action("Consultant", "Hatching")" title="产业发展智库">产业发展智库</a></li>
+        </ul>
+    </div>
+    <div class="content_right">
+        <iframe id="frame-container" src="@Url.Action("Cocultivate", "Hatching")" frameborder="0" scrolling="no" style="width:100%;min-height:800px; margin:0 auto;"></iframe>
+    </div>
+    <div class="clearfix"></div>
+</div>

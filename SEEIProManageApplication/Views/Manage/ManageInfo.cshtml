@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "系统主界面";
+    Layout = "~/Views/Shared/_LayoutPageSideBar.cshtml";
+}
+<style>
+    .tb_content {
+        margin: 100px auto;
+        height: 480px;
+        text-align: center;
+        /*border-collapse: collapse;*/
+    }
+
+        .tb_content tr td {
+            width: 200px;
+            height: 100px;
+            border: 1px solid;
+            /*border-collapse: collapse;*/
+        }
+
+        .tb_content tr .td_box:hover, .tb_content tr .td_box:hover a {
+            color: blue;
+            border-color: blue;
+            background: #DCDCDC;
+        }
+
+        .tb_content tr .td_gap {
+            width: 40px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+        }
+</style>
+<table class="tb_content">
+    <tr>
+        <td class="td_box" title="最新通知"><a href="#">最新通知</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="资料上传"><a href="#">资料上传</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="修改个人信息"><a href="#">修改个人信息</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="密码修改"><a href="#">密码修改</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="发布热点"><a href="#">发布热点</a> </td>
+
+    </tr>
+    <tr></tr>
+    <tr>
+        <td class="td_box" title="研究院新闻"><a href="#">研究院新闻</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="教装资讯"><a href="#">教装资讯</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="学术平台"><a href="#">学术平台</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="招聘信息"><a href="#">招聘信息</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="合作院校"><a href="#">合作院校</a> </td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td class="td_box" title="课题中心"><a href="#">课题中心</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="资讯管理"><a href="#">资讯管理</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="内容修改"><a href="#">内容修改</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="查看反馈"><a href="#">查看反馈</a> </td>
+        <td class="td_gap"></td>
+        <td class="td_box" title="注销"><a href="#">注销</a> </td>
+    </tr>
+</table>

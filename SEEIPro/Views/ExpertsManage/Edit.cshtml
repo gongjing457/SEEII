@@ -1,0 +1,158 @@
+﻿@model SEEIPro.Models.Expert
+
+@*强类型视图*@
+
+@{
+    ViewBag.Title = "编辑专家信息";
+    Layout = "~/Views/Shared/_LayoutPageExpertsManagement.cshtml";
+}
+
+@using SEEIPro.Models;
+
+<link href="~/Content/css/Edit.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnCancel").click(function () {
+            window.location = "/ExpertsManage/Index";//取消修改，返回列表
+        });
+
+    });
+
+</script>
+
+
+
+@using (Html.BeginForm("Edit", "ExpertsManage", FormMethod.Post))
+{
+    //Expert expert = (Expert)ViewData["exptinfo"];
+
+    <input type="hidden" name="sid" value="@Model.sId" />
+    <table id="tb_explist">
+        <thead><tr><td colspan="6">编辑专家个人信息</td></tr></thead>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" class="text" name="eName" title="修改姓名" value="@Model.eName" /></td>
+            <td>编号：</td>
+            <td><input type="text" class="text" name="eId" title="修改专家编号" value="@Model.eId" /></td>
+            <td>性别：</td>
+            <td>
+                @*<input type="text" class="text" name="gender" title="修改性别" value="@Model.gender" />*@
+                <select name="gender" class="text" title="修改性别">
+                    @if (Model.gender.Equals("男"))
+                    {
+                        <option selected="selected" value="男">男</option>
+                    }
+                    else
+                    {
+                        <option value="男">男</option>
+                    }
+                    @if (Model.gender.Equals("女"))
+                    {
+                        <option selected="selected" value="女">女</option>
+                    }
+                    else
+                    {
+                        <option value="女">女</option>
+                    }
+                    @if (Model.gender.Equals("未知"))
+                    {
+                        <option selected="selected" value="未知">未知</option>
+                    }
+                    else
+                    {
+                        <option value="未知">未知</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>出生日期：</td>
+            <td>
+                <input class="text" type="text" name="birthDay" title="请选择出生日期" value="@Convert.ToDateTime(Model.birthDay).ToShortDateString()" onclick="WdatePicker({ mindate: '1900-01-01', maxdate: '%y-%M-%d' })" />
+            </td>
+            <td>身份证号：</td>
+            <td><input type="text" class="text" name="identityNumber" title="修改18位身份证号" value="@Model.identityNumber" /></td>
+            <td>单位性质：</td>
+            <td>
+                <select name="unitProperty" class="text" title="请选择单位性质(注：所填第一个单位性质)！">
+                    @foreach (UnitProperty unit in @ViewBag.UnitList as List<UnitProperty>)
+                    {
+                        if (unit.id == Model.unitProperty)
+                        {
+                            <option selected="selected" value="@unit.id">@unit.unitProperties</option>
+                        }
+                        else
+                        {
+                            <option value="@unit.id">@unit.unitProperties</option>
+                        }
+
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>单位信息：</td>
+            <td><input type="text" class="text" name="UnitDetailsOne" title="主要单位信息" value="@Model.UnitDetailsOne" /></td>
+            @if (Model.UnitDetailsTwo != null && Model.UnitDetailsTwo.Length > 0)
+            {
+                <td>单位二(名称;部门;职务)：</td>
+                <td><input type="text" class="text" name="UnitDetailsTwo" title="次要单位信息" value="@Model.UnitDetailsTwo" /></td>
+            }
+            @if (Model.UnitDetailsThree != null && Model.UnitDetailsThree.Length > 0)
+            {
+                <td>单位三(名称;部门;职务)：</td>
+                <td><input type="text" class="text" name="UnitDetailsThree" title="次要单位信息" value="@Model.UnitDetailsThree" /></td>
+            }
+        </tr>
+        <tr>
+            <td>技术职称：</td>
+            <td><input type="text" class="text" name="academicTitles" title="修改技术职称" value="@Model.academicTitles" /></td>
+            <td>办公电话：</td>
+            <td><input type="text" class="text" name="officePhone" title="修改办公电话" value="@Model.officePhone" /></td>
+            <td>移动电话：</td>
+            <td><input type="text" class="text" name="cellPhone" title="修改移动电话" value="@Model.cellPphone" /></td>
+        </tr>
+
+        <tr>
+            <td>邮箱：</td>
+            <td><input type="text" class="text" name="email" title="修改邮箱" value="@Model.email" /></td>
+            <td>通讯地址：</td>
+            <td><input type="text" class="text" name="postalAddress" title="修改通信地址" value="@Model.postalAddress" /></td>
+            <td>专家来源：</td>
+            <td><input type="text" class="text" name="expertSources" title="修改专家来源" value="@Model.expertSources" /></td>
+        </tr>
+        <tr>
+            <td>从事领域：</td>
+            <td><input type="text" class="text" name="field" title="修改专家从事领域" value="@Model.field" /></td>
+            <td>相关主页：</td>
+            <td><input type="text" class="text" name="personalUrl" title="修改专家相关主页" value="@Model.personalUrl" /></td>
+            <td>入库状态：</td>
+            <td>
+                <select name="beStatus" class="text" title="请选择入库状态!">
+                    @foreach (StorageStatu status in @ViewBag.statusList as List<StorageStatu>)
+                    {
+                        if (status.sid == Model.beStatus)
+                        {
+                            <option selected="selected" value="@status.sid">@status.beStatus</option>
+                        }
+                        else
+                        {
+                            <option value="@status.sid">@status.beStatus</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>业务分类：</td>
+            <td><input type="text" class="text" name="Categories" title="修改业务分类" value="@Model.Categories" /></td>
+            <td>备注：</td>
+            <td><input type="text" class="text" name="remark" title="修改备注说明" value="@Model.remark" /></td>
+        </tr>
+        <tr><td colspan="6"><input type="submit" class="button" title="点击保存修改信息" value="确认" /><input type="button" id="btnCancel" class="button" title="取消修改专家信息，返回专家列表" value="取消" /></td></tr>
+    </table>
+
+}

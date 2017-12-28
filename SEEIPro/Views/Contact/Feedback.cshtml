@@ -1,0 +1,131 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>留言反馈</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .container-fluid {
+            margin: 0 auto;
+            padding-top: 20px;
+            width: 100%;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+            min-height: 600px;
+            text-align: center;
+            display: block;
+            overflow: hidden;
+        }
+
+            .container-fluid span {
+                line-height: 60px;
+            }
+
+        .tb_container {
+            margin: 10px auto;
+            max-width: 80%;
+            min-width: 1000px;
+            min-height: 600px;
+            letter-spacing: 2px;
+            border: 1px solid #DCDCDC;
+            border-collapse: collapse;
+        }
+
+            .tb_container tr {
+                border: 1px solid #DCDCDC;
+                border-collapse: collapse;
+            }
+
+        .text {
+            height: 35px;
+            width: 260px;
+            border: 1px solid #DCDCDC;
+            border-radius: 4px;
+        }
+
+        .btn {
+            width: 120px;
+            margin-left: 100px;
+            font-size: 14px;
+        }
+
+        .demo-label {
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            padding-right: 10px;
+        }
+
+        .textarea {
+            height: 200px;
+            width: 460px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <table class="tb_container">
+            <tr><td colspan="2" style="background:#DCDCDC"><strong>留言反馈</strong> </tr>
+            <tr><td>您的姓名：</td><td> <input id="txt_name" class="text" type="text" placeholder="姓名" /></td> </tr>
+            <tr><td>您的联系电话：</td> <td> <input id="txt_phone" class="text" type="text" placeholder="联系电话" /></td></tr>
+            <tr><td>您的邮箱：</td><td><input id="txt_email" class="text" type="email" placeholder="邮箱" /></td></tr>
+            <tr>
+                <td>反馈主题：</td>
+                <td>
+                    <label class="demo-label"> <input class="demo-radio" type="radio" checked name="iCheck" value="" />项目合作</label>
+                    <label class="demo-label "> <input class="demo-radio" type="radio" name="iCheck" value="" />资料索取</label>
+                    <label class="demo-label"> <input class="demo-radio" type="radio" name="iCheck" value="" />意见/建议</label>
+                    <label class="demo-label "> <input class="demo-radio" type="radio" name="iCheck" value="" />投诉问题</label>
+                    <label class="demo-label "> <input class="demo-radio" type="radio" name="iCheck" value="" />其他问题</label>
+                </td>
+            </tr>
+            <tr><td>意见或建议：</td><td><textarea id="txt_feedback" class="textarea" placeholder="如果您对本单位有任何意见和建议，请您一定要告诉我们！"></textarea> </td></tr>
+            <tr><td colspan="2" style="color:red;">注：我们将严格对您的个人信息进行保密！</td></tr>
+        </table>
+
+
+        <div>
+            <input id="bt_submit" class="btn btn-primary btn-sm" type="button" value="提交" title="点击提交" />
+            <input id="bt_reset" class="btn btn-primary btn-sm" type="button" value="清空" title="点击清空" />
+        </div>
+        <span>如果您对研究院有任何意见和建议，都可以通过以下方式进行反馈，我们将安排专人负责跟踪并加以协调，以期实现互利共赢！</span>
+    </div>
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var name = document.getElementById("txt_name");
+            var phone = document.getElementById("txt_phone");
+            var email = document.getElementById("txt_email");
+            var feedback = document.getElementById("txt_feedback");
+            var btnReset = document.getElementById("bt_reset");
+            var btnSubmit = document.getElementById("bt_submit");
+
+
+            btnReset.onclick = function () {
+                name.value = "";
+                phone.value = "";
+                email.value = "";
+                feedback.value = "";
+            };
+
+            btnSubmit.onclick = function () {
+                //ajax一步提交至数据库
+                var res = confirm("确认提交吗？");
+                if (res == true) {
+                    alert("已经提交成功，感谢您的反馈！");
+                } else {
+                    return false;
+                }
+
+            };
+        };
+    </script>
+</body>
+</html>

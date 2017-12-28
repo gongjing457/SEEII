@@ -1,0 +1,125 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>教装新闻</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        .panel {
+            margin: 40px auto;
+            padding: 0px;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+            margin: 40px auto;
+            width: 100%;
+            min-height: 800px;
+            overflow: hidden;
+            color: #4F4F4F;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .list-group {
+            list-style-type: none;
+            min-width: 1000px;
+            padding-left: 10px;
+        }
+
+            .list-group li {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #DCDCDC;
+            }
+
+                .list-group li:hover {
+                    background: #F8F8FF;
+                }
+
+                .list-group li span {
+                    /*color: #b7b7b7;*/
+                }
+
+                .list-group li a {
+                    font-size: 16px;
+                    color: #000000;
+                }
+
+                    .list-group li a:hover {
+                        color: #0000FF;
+                        text-decoration: none;
+                    }
+
+        .glyphicon {
+            display: inline-block;
+            padding-right: 2px;
+            color: #b7b7b7;
+        }
+
+        .glyphicon-fire {
+            color: #FF4500;
+        }
+
+        .list-group li .dt_release {
+            float: right;
+            padding-right: 10px;
+            color: #b7b7b7;
+        }
+    </style>
+</head>
+<body>
+    @*<div class="item-wrapper">*@
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h4>教装资讯</h4></div>
+        <div class="panel-body">
+
+
+            <ul class="list-group">
+                <li>
+                    <span>
+                        <a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 蓬江区政府与中国高等教育学会项目合作座谈会成功举行</a>&nbsp;@if (102 > 100)
+                        {<span class="glyphicon glyphicon-fire"></span> }
+                        else { }  &nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>102
+                    </span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-03</span>
+                </li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 教育部教育装备研究与发展中心一行赴江门指导工作 推动教育装备产业发展</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>38</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-11-26</span></li>
+                <li>
+                    <span>
+                        <a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 校企联合研究生培养工作座谈会召开</a>&nbsp;@if (102 > 100)
+                        {<span class="glyphicon glyphicon-fire"></span> }
+                        else { }  &nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>65
+                    </span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-15</span>
+                </li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> ALAT2017中国3D打印装备教育发展论坛成功举办</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>12</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-18</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 横琴常睿教育科技有限公司到访南方教育装备创新产业城</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>10</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-13</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 中国技术市场协会领导专家一行到访南方教育装备创新产业城</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>27</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-19</span></li>
+                <li>
+                    <span>
+                        <a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 引领装备建设 着力打造教育部教育装备研究与发展中心“3D打印（VR、AR）技术教育教学应用实验区”</a>&nbsp;@if (102 > 100)
+                        {<span class="glyphicon glyphicon-fire"></span> }
+                        else { } &nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>50
+                    </span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-12-20</span>
+                </li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 南方教育装备创新产业城获批江门市科普教育基地创建单位</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>22</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-7-24</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 中国地质大学（武汉）机械与电子信息学院专家一行到访南方教育装备创新产业城</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>38</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-9-23</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 高校竞赛评估与管理体系研究工作座谈会召开</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>30</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-8-14</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 江门市蓬江区“3D打印(VR、AR)技术教育教学应用实验区”建设正式启动</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>16</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-7-05</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 研究院一行应邀参加蓬江区人力资源经理协会讲座 推广高校学生联合培养项目</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>5</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-7-05</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 《教育部关于新形势下进一步做好普通中小学装备工作的意见》培训班（第四期）顺利举行</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>9</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-6-26</span></li>
+                <li><span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 第十六届广东教育装备展览会暨第二届江门·台湾教育装备展览会在广东珠西国际会展中心成功举办</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>2</span><span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-4-19</span></li>
+                <li>
+                    <span><a class="news-title" href="#" target="_blank" title="点击查看详情！"><i class="icon-caret-right"></i> 南方教育装备创新产业城教育装备产品检测评估工作交流会圆满成功</a>&nbsp; &nbsp;&nbsp; &nbsp;<span class="glyphicon glyphicon-eye-open"></span>1</span>
+                    <span class="dt_release"><span class="glyphicon glyphicon-time"></span>发布时间：2017-3-11</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

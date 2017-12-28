@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_LayoutPageTopMain.cshtml";
+}
+
+<style>
+    .div-wrap {
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    .div-tooltip {
+        width: 1000px;
+        font-size: 18px;
+    }
+
+    #ct-time {
+        color: red;
+    }
+
+    .div-tooltip .glyphicon {
+        font-size: 32px;
+        color: blue;
+    }
+
+    marquee {
+        color: red;
+        width: 800px;
+        background: #DCDCDC;
+    }
+</style>
+<link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<div class="div-wrap">
+    还有<label id="ct-time">15S</label>后返回官网......
+    <div class="div-tooltip">
+        <i class="glyphicon glyphicon-volume-up"></i><marquee direction="left" behavior="scroll" scrollamount="8" scrolldelay="0" loop="-1" onmouseover="this.stop()" onmouseout="this.start()" hspace="10">感谢您的访问，产业发展智库目前还在建设中,尽情期待！</marquee>
+    </div>
+    @*<img src="~/Content/images/operation.png" style="width:50%;height:50%;" alt="创新集群发展模式" />*@
+</div>
+
+<script>
+    window.onload = function () {
+        var Total = 15;
+        var ct = document.getElementById("ct-time");
+        setInterval(minusTime, 1000);
+
+        function minusTime() {
+            if (Total >= 1) {
+                Total--;
+                ct.innerHTML = Total + "S";
+            } else {
+                window.location.href = "/Main/Home";
+            }
+        }
+    };
+</script>

@@ -1,0 +1,216 @@
+﻿@{
+    Layout = null;
+}
+@using PagedList.Mvc;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>研究院新闻</title>
+    <style>
+        .panel {
+            margin: 40px auto;
+            width: 100%;
+            min-height: 800px;
+            overflow: hidden;
+            color: #4F4F4F;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+            display: block;
+        }
+
+        .item-wrapper {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            /*margin-bottom: 10px;*/
+            display: block;
+            line-height: 30px;
+        }
+
+        .item__content table tr .pic-title {
+            width: 180px;
+        }
+
+        .item__content table tr td p {
+            padding-left: 10px;
+        }
+
+        .zoom {
+            display: inline-block;
+            position: relative;
+        }
+
+
+        .lazyautosizes {
+            width: 180px;
+            height: 110px;
+        }
+
+        .meta__container {
+            display: block;
+            font-size: 16px;
+            color: #BEBEBE;
+        }
+
+        .item-wrapper .js_entry-link {
+            font-size: 18px;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .item-wrapper .detail-link {
+            color: #4682B4;
+        }
+
+        .item-wrapper:hover {
+            border-radius: 2px;
+            background-color: #F8F8FF;
+        }
+
+        .item-wrapper a:hover {
+            color: #0000FF;
+        }
+
+        .item-wrapper:after {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: #e5e5e5;
+        }
+        /* magnifying glass icon */
+
+        .zoom:after {
+            content: '';
+            display: block;
+            width: 33px;
+            height: 33px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: url(../../Content/images/magnify.png);
+        }
+
+        .zoom img {
+            display: block;
+        }
+
+            .zoom img::selection {
+                background-color: transparent;
+            }
+    </style>
+
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.zoom.min.js"></script>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>研究院新闻</h4></div>
+        <div class="panel-body">
+            <!--第一行-->
+            <div class="item-wrapper">
+                <header>
+                    <a class="js_entry-link" href="#">中国高等教育学会军民融合发展筹备研讨会在南教城成功召开</a>
+                    <div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-12-12</div>
+                </header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td class="pic-title"><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n4.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;为了进一步加快军民融合工作的落实与建设，实现中华民族复兴的中国梦与强军梦。12月11日，中国高等教育学会携手江门市蓬江区人民政府、南方教育装备创新产业城（以下简称“南教城”）举办了中国高等教育学会军民融合发展分会筹备研讨会，就军民融合平台搭建、中国高等教育学会军民融合发展分会工作规程（以下简称“规程”）等内容展开了探讨。<a class="detail-link" href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--第二行-->
+            <div class="item-wrapper">
+                <header> <a href="#" class="js_entry-link">《中国现代教育装备》南方办事处揭牌暨共建座谈会举行</a><div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-12-13</div></header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n5.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;《中国现代教育装备》南方办事处揭牌暨共建座谈会于12月12日上午在南方教育装备创新产业城三楼会议室举行。高教学会事业发展部，《中国现代教育装备》杂志社社长赵锋、副社长兼执行总编张鹏、副主编王者鹤、编辑部主任赵媛、校企合作部主任刘袁、江门市南方教育装备创新产业城主任胡立壮、常务副主任李兆权、南方教育装备创新研究院常务副院长郝杰等出席。<a class="detail-link" href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--第二行-->
+            <div class="item-wrapper">
+                <header><a href="#" class="js_entry-link">2017年广州市教育装备管理人员能力提升培训班圆满结束</a><div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-12-15</div></header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n6.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;12月13日，为期4天的2017年广州市教育装备管理人员能力提升培训班结业典礼在南方教育装备创新产业城举行。25名广州市教育装备中心管理人员和江门市南方教育装备创新产业城代表参加了此次结业典礼。<a class="detail-link" href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--第一行-->
+            <div class="item-wrapper">
+                <header>
+                    <a class="js_entry-link" href="#">2000名小创客来袭，燃爆南方教育装备创新产业城</a>
+                    <div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-11-06</div>
+                </header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td class="pic-title"><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n3.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;11月4日上午9点，江门市蓬江区环市街小学“奇思妙想 创乐无限”创客嘉年华于南方教育装备创新产业城顺利拉开帷幕，环市街2000名小创客在南方教育装备创新产业城内“斗”创意，晒作品。<a class="detail-link" href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--第二行-->
+            <div class="item-wrapper">
+                <header> <a href="#" class="js_entry-link">北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城</a><div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-10-26</div></header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n2.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;10月26日，北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城，并与蓬江区教育局、南方教育装备创新研究院开展座谈会。<a href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--第二行-->
+            <div class="item-wrapper">
+                <header><a href="#" class="js_entry-link">全国首个教育装备体验中心在江门启动</a><div class="meta__container"><span class="glyphicon glyphicon-time"></span> 2017-11-05</div></header>
+                <div class="item__content">
+                    <table>
+                        <tr>
+                            <td><span class='zoom'><img class="lazyautosizes lazyloaded" src="~/Content/images/n1.jpg" alt="暂无图片"></span></td>
+                            <td><p>&nbsp;&nbsp;&nbsp;&nbsp;11月3日上午，中国教育装备体验中心动工仪式在蓬江区双龙大道42号举行。作为蓬江区重大项目签约奠基投产发展成果展示活动的环市分会场，活动向社会展示了蓬江区近年产业建设及项目成果、珠西智谷项目进展情况、以及教育装备产业的重要发展项目——中国教育装备体验中心。<a href="#" target="_blank" title="点击查看详情">查看详情</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--*********页码************-->
+            @*<div class="div_pager">
+                    <table class="tb_pager">
+                        <tr>
+                            <td> 每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页</td>
+                            <td> @Html.PagedListGoToPageForm((PagedList.IPagedList)Model, "Docs", new GoToFormRenderOptions { LabelFormat = "跳转到：" })</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">@Html.PagedListPager(Model, page => Url.Action("Docs", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 })</td>
+                        </tr>
+                    </table>
+                </div>*@
+
+        </div>
+
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            $(".zoom").zoom();
+        });
+    </script>
+
+</body>
+</html>

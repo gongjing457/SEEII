@@ -1,0 +1,217 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>人才招聘</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/panelbase.css" rel="stylesheet" />
+    <style>
+        #accordion {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+        }
+
+        a:hover, a:focus {
+            outline: none;
+            text-decoration: none;
+        }
+
+        #accordion .panel {
+            box-shadow: none;
+            border: none;
+            border-radius:0px;
+            margin-bottom: 6px;
+            border-left: 5px solid #337AB7;
+            border-bottom: 1px solid #d3d3d3;
+        }
+
+        #accordion .panel-heading {
+            padding: 0;
+            background-color: #fff;
+        }
+
+        #accordion .panel-title a {
+            display: block;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 14px 40px;
+            background: #f5f5f5;
+            text-transform: uppercase;
+            border-bottom: 1px solid #d3d3d3;
+            position: relative;
+        }
+
+            #accordion .panel-title a span {
+                float: right;
+                color: #337AB7;
+            }
+
+            #accordion .panel-title a.collapsed {
+                border-top: 0;
+                color: #333;
+                background: #eee;
+                border-bottom: 1px solid transparent;
+            }
+
+                #accordion .panel-title a:before,
+                #accordion .panel-title a.collapsed:before {
+                    /*content: "\f068"; */
+                    content: "\2212";
+                    font-family: 'Glyphicons Halflings';
+                    position: absolute;
+                    top: 10px;
+                    left: 15px;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #337AB7;
+                }
+
+                #accordion .panel-title a.collapsed:before {
+                    content: "\002b";
+                }
+
+        #accordion .panel-body {
+            color: #666464;
+            font-size: 16px;
+            /*line-height: 20px;*/
+            border-top: 0 none;
+            /*	background: #eee;*/
+            padding: 15px 27px;
+        }
+
+        .glyphicon {
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>人才招聘</h4></div>
+        <div class="panel-body">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;南方教育装备创新产业城是在教育部教育装备研究与发展中心、江门市人民政府和江门同宏投资管理有限公司共同建设的全国教育装备改革试点项目，以创新设计为抓手，以智能化教育装备为核心，致力于打造集研发设计、产业孵化、展示交易、互动体验、教育培训于一体的现代教育装备“智造”全产业链，建成中国教育装备创新发展的示范点，重点打造研发设计板块、工业园区板块、教育综合体板块。详情网址：www.edueic.com。现因企业发展的需要，需要招聘若干名的项目实习工程师(毕业后视能力可转正)： </p>
+            @*<dl>
+                    <dt class="h4 bg-info">
+                        招聘岗位一：云ERP  需求人数：3人  项目周期：180天  实习期待遇：2000元/月
+                    </dt>
+                    <dd>项目简介：目标是研发一套适合中国中小微企业，特别是制造型企业的ERP系统。云ERP涵盖企业进销存管理，生产管理和财务管理三大块，基于.NET平台，采用B/S架构，云端部署。云ERP试商用版本已经上线，首批客户反应良好。</dd>
+                    <dd>所需专业方向：以计算机科学和软件工程两个专业为主，以电子信息、通信、数学等其他理工类专业为辅。要求逻辑分析及推理能力强，有扎实的计算机基础，包括计算机原理，计算机网络，数据结构与算法，操作系统及数据库原理，有面向对象基础，至少掌握一门面向对象的高级语言，有实际动手编程能力，在校期间有项目经验更好。</dd>
+                    <dd><span class="bg-danger">招聘期限：自发布之日，3个月内有效。</span></dd>
+                    <dt class="h4 bg-info">
+                        招聘岗位二：云企业管理数据分析建模  需求人数：2人  项目周期：180天  实习期待遇：2000元/月
+                    </dt>
+                    <dd>项目简介：企业管理数据分析建模分为两个阶段：项目实践和数据建模。</dd>
+                    <dd>所需专业方向：以财务管理和统计学两个专业为主，以会计、应用数据、运筹学等专业为辅。要求逻辑分析及推理能力强，有扎实的财务管理、统计学专业知识，做事灵活变通，有良好的沟通能力，执行能力强。</dd>
+                    <dd><span class="bg-danger">招聘期限：自发布之日，1个月内有效。</span></dd>
+                    <dt class="h4 bg-info">
+                        招聘岗位三：AR互动教学系统研发  需求人数：5人  项目周期：180天  实习期待遇：1500元/月
+                    </dt>
+                    <dd>项目简介：研发AR互动教学软件系统，用于智能化教育、智慧校园、3D建模、动漫制作、Windows，安卓网页端设计开发。</dd>
+                    <dd>所需专业方向：计算机软件工程，自动化，智能控制，视频图像处理，动漫设计。</dd>
+                    <dd><span class="bg-danger">招聘期限：自发布之日，1个月内有效。</span></dd>
+                    <dt class="h4 bg-info">
+                        招聘岗位四：教育类软件应用平台  需求人数：5人  项目周期：180天  实习期待遇：1500元/月
+                    </dt>
+                    <dd>项目简介：研发教育类软件应用平台，达到使用便捷、高质、稳定的效果。</dd>
+                    <dd>所需专业方向：精通网页端编程，安卓端编程，C语言程序设计、软件工程、多媒体技术与应用。</dd>
+                    <dd><span class="bg-danger">招聘期限：自发布之日，2个月内有效。</span></dd>
+                </dl>*@
+
+
+
+            <!--*******************************************-->
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                职位名称：企业云ERP<span>2017-12-22</span><span class="glyphicon glyphicon-time"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <p>项目简介：目标是研发一套适合中国中小微企业，特别是制造型企业的ERP系统。云ERP涵盖企业进销存管理，生产管理和财务管理三大块，基于.NET平台，采用B/S架构，云端部署。云ERP试商用版本已经上线，首批客户反应良好。</p>
+                            <p>项目周期：180天</p>
+                            <p>所需专业方向：以计算机科学和软件工程两个专业为主，以电子信息、通信、数学等其他理工类专业为辅。要求逻辑分析及推理能力强，有扎实的计算机基础，包括计算机原理，计算机网络，数据结构与算法，操作系统及数据库原理，有面向对象基础，至少掌握一门面向对象的高级语言，有实际动手编程能力，在校期间有项目经验更好。</p>
+                            <p>需求人数：3人</p>
+                            <p>实习期待遇：2000元/月</p>
+                            <p>招聘期限：自发布之日，3个月内有效。</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                职位名称：云企业管理数据分析建模<span>2017-12-22</span><span class="glyphicon glyphicon-time"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <p>项目简介：企业管理数据分析建模分为两个阶段：项目实践和数据建模。</p>
+                            <p>所需专业方向：以财务管理和统计学两个专业为主，以会计、应用数据、运筹学等专业为辅。要求逻辑分析及推理能力强，有扎实的财务管理、统计学专业知识，做事灵活变通，有良好的沟通能力，执行能力强。</p>
+                            <p>项目周期：180天</p>
+                            <p>实习期待遇：2000元/月</p>
+                            <p>需求人数：2人</p>
+                            <p>招聘期限：自发布之日，1个月内有效。</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                职位名称：AR互动教学系统研发<span>2017-12-22</span><span class="glyphicon glyphicon-time"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <p>项目简介：研发AR互动教学软件系统，用于智能化教育、智慧校园、3D建模、动漫制作、Windows，安卓网页端设计开发。</p>
+                            <p>项目周期：180天</p>
+                            <p>所需专业方向：计算机软件工程，自动化，智能控制，视频图像处理，动漫设计。</p>
+                            <p>需求人数：5人</p>
+                            <p>实习期待遇：1500元/月</p>
+                            <p>招聘期限：自发布之日，1个月内有效。</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFor">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                职位名称：教育类软件应用平台<span>2017-12-22</span><span class="glyphicon glyphicon-time"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFor">
+                        <div class="panel-body">
+                            <p>项目简介：研发教育类软件应用平台，达到使用便捷、高质、稳定的效果。</p>
+                            <p>项目周期：180天</p>
+                            <p>所需专业方向：精通网页端编程，安卓端编程，C语言程序设计、软件工程、多媒体技术与应用。</p>
+                            <p>需求人数：5人</p>
+                            <p>实习期待遇：1500元/月</p>
+                            <p>招聘期限：自发布之日，2个月内有效。</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--******************************************-->
+    </div>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

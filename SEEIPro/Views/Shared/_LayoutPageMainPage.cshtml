@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="南方教育装备创新研究院" />
+    <meta name="description" content="南方教育装备创新研究院，是南方教育装备创新产业城创新驱动的核心支撑部分，是在教育部教育装备研究与发展中心的指导与支持下，采取政府、高校、企业等多部门协同创新的方式，建设的一所集教育装备技术研发、产品检测、人才培养和产业孵化为一体的教育装备新型研发机构。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <link type="image/x-icon" rel="icon" href="~/Content/images/favico.ico" />
+    <link href="~/Content/css/floatpanelstyle.css" rel="stylesheet" />
+    <link href="~/Content/css/navigation.css" rel="stylesheet" />
+    <link href="~/Content/css/MainPage.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+    <!-- 网站流量统计-->
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1a9a0383bd74a2e5bb2537c376fa190e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <!--Float Panel-->
+    <script type="text/javascript">
+        $(function () {
+            //Float Panel
+            $("#floatPanel > .ctrolPanel > a.arrow").eq(0).click(function () { $("html,body").animate({ scrollTop: 0 }, 800); return false; });
+
+            var objPopPanel = $("#floatPanel > .popPanel");
+            var w = objPopPanel.outerWidth();
+            $("#floatPanel > .ctrolPanel > a.qrcode").bind({
+                mouseover: function () {
+                    objPopPanel.css("width", "0px").show();
+                    objPopPanel.animate({ "width": w + "px" }, 300); return false;
+                },
+                mouseout: function () {
+                    objPopPanel.animate({ "width": "0px" }, 300); return false;
+                    objPopPanel.css("width", w + "px");
+                }
+            });
+        });
+    </script>
+    <div id="floatPanel">
+        <div class="ctrolPanel">
+            <a class="arrow" href="#" title="点击返回顶部"><span>顶部</span></a>
+            <a class="contact" title="反馈留言" href="https://shimo.im/sheet/fJjpA6Gjt9c0Msvx?r=ODJXER/「2017年度反馈单」" target="_blank"><span>反馈</span></a>
+            <a class="qrcode" href="#" title="请扫描二维码添加关注">微信</a>
+        </div>
+        <div class="popPanel">
+            <div class="popPanel-inner">
+                <div class="qrcodePanel">
+                    <img src="~/Content/images/weixin.jpg" /><br /><span>获取更多精彩，请扫码关注！</span>
+                </div>
+                <div class="arrowPanel">
+                    <div class="arrow01">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Float Panel-->
+
+    <div id="page">
+        <header id="header">
+            <div class="top_wrap">
+                <div class="tab_wrap">
+                    <h1><a href="@Url.Action("Home","Main")" title="南方教育装备创新研究院"> <img src="~/Content/images/logo.jpg" draggable="false" alt="南方教育装备创新研究院" title="南方教育装备创新研究院" /></a> </h1>
+                    <nav>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">研究院概况</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("ProfileInfo","About")">研究院简介</a></li>
+                                    <li><a href="@Url.Action("Organization", "About")">组织架构</a></li>
+                                    <li><a href="@Url.Action("Goals", "About")">发展规划</a></li>
+                                    <li><a href="@Url.Action("Landscape", "About")">研究院风采</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">新闻资讯</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("InstitutionalNews", "Information")">研究院新闻</a></li>
+                                    <li><a href="@Url.Action("IndustrialNews", "Information")">教装资讯</a></li>
+                                </ul>
+                            </li>
+                            <li class="active">
+                                <a href="#s2">课题研究</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("Reform", "Research")">教育改革试验区</a></li>
+                                    <li><a href="@Url.Action("Printing3D", "Research")">3D应用试验区</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">人才培养</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("eCollege", "Hatching")">教育装备学院</a></li>
+                                    <li><a href="@Url.Action("Training", "Hatching")">培训中心</a></li>
+                                    <li><a href="@Url.Action("Cocultivation", "Hatching")">高校联合培养</a></li>
+                                    <li><a href="@Url.Action("HomePage", "EEmain")">产业发展智库</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("Evaluation", "Util")">产品检测评估</a></li>
+                            <li>
+                                <a href="#">合作交流</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("HigherEducation", "Communicate")">高教学会合作</a></li>
+                                    <li><a href="@Url.Action("Academic", "Communicate")">学术平台</a></li>
+                                    <li><a href="@Url.Action("College", "Communicate")">院校合作</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">联系我们</a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("Cooperation", "Contact")">项目合作</a></li>
+                                    <li><a href="@Url.Action("Recruitment", "Contact")">人才招聘</a></li>
+                                    <li> <a href="@Url.Action("Download", "Contact")">资料下载</a></li>
+                                    <li><a href="@Url.Action("MailBox","Contact")">院长信箱</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="main">
+            @RenderBody()
+        </div>
+        <!--Footer-->
+        <footer id="footer">
+            <div class="hp_divfoot"><span style="font-size:13px;">南方教育装备创新研究院&nbsp;&nbsp;版权所有 &copy;2017&nbsp;&nbsp; 地址：广东省江门市蓬江区群华路15号群华科技园5栋二层&nbsp;&nbsp;&nbsp;&nbsp; 粤ICP备0000000000号</span></div>
+        </footer>
+    </div>
+</body>
+</html>

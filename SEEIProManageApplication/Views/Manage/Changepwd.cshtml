@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "密码修改";
+    Layout = "~/Views/Shared/_LayoutPageSideBar.cshtml";
+}
+
+<link href="~/Content/css/changepwd.css" rel="stylesheet" />
+<link href="~/Scripts/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container_changePwd">
+    <table class="tb_changePwd">
+        <thead>
+            <tr><td colspan="2"><h4>密码修改</h4></td></tr>
+
+        </thead>
+        <tr>
+            <td>旧密码：</td>
+            <td><input id="oldPwd" class="text" type="password" placeholder="旧密码" title="请输入当前使用的密码" /><span class="errMsg" style="color:red">*</span></td>
+
+        </tr>
+        <tr>
+            <td>新密码：</td>
+            <td><input id="newPwd" class="text" type="password" placeholder="新密码只能由数字、字母组成" title="请输入新密码" /><span class="errMsg" style="color:red">*</span></td>
+        </tr>
+        <tr>
+            <td>确认新密码：</td>
+            <td><input id="newPwd1" class="text" type="password" placeholder="新密码只能由数字、字母组成" title="请再次输入新密码" /><span class="errMsg" style="color:red">*</span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="btn_change" class="button" type="button" title="确定修改" value="确定" />
+                <input id="btn_cancel" class="button" type="button" title="取消，返回主界面" value="取消" />
+            </td>
+        </tr>
+    </table>
+    <div class="div-tooltip">
+        <i class="glyphicon glyphicon-volume-up"></i><marquee direction="left" behavior="scroll" scrollamount="8" scrolldelay="0" loop="-1" onmouseover="this.stop()" onmouseout="this.start()" hspace="10">注意：请您务必牢记您的密码，请不要将您的密码告诉他人，以免对研究院财产造成意外损失！谢谢合作！</marquee>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script>
+    $(function () {
+        var oldpass = $("#oldPwd").val().trim();
+        $("#oldPwd").blur(function () {
+            //old password
+            if (oldpass == "" || oldpass.length == 0) {
+                alert("请输入当前密码！");
+            } else {
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Manage/ValiPwd",
+                    data: { pwd: pass },
+                    datatype: 'text',
+                    success: function (data) {
+                        if (data == 'no') {
+                            alert("密码输入有误，请确认后重新输入！");
+                        } else {
+                            return null;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("出现错误，请稍后再试：" + xhr.responseText);
+                    }
+                });
+            }
+        });
+        $("#newPwd").blur(function () {
+            //validate new password
+
+        });
+        $("#newPwd1").blur(function () {
+            //new password
+
+        });
+
+        $("#btn_change").click(function () {
+            //1.not null
+
+            //2. new same
+
+            //3.submit
+            alert("修改成功！")
+            $("#newPwd").val().trim();
+            $("#newPwd1").val().trim();
+            //4.return result
+        });
+
+        $("#btn_cancel").click(function () {
+            alert("取消，返回主页！");
+        });
+    });
+</script>

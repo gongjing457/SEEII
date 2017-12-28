@@ -1,0 +1,225 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>后台管理登录</title>
+    <link type="image/x-icon" rel="icon" href="~/Content/images/favico.ico" />
+    <style>
+        .login-page {
+            width: 500px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .form {
+            font-family: 'Microsoft YaHei';
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 500px;
+            margin: 0 auto 100px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        table {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .form .txtbox {
+            /*font-family: 'Microsoft YaHei';*/
+            background: #f2f2f2;
+            width: 320px;
+            padding: 15px;
+            border: 0;
+            margin: 0 0 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        /*validate*/
+        #validatecode {
+            /*font-family: 'Microsoft YaHei';*/
+            background: #f2f2f2;
+            width: 140px;
+            padding: 15px;
+            border: 0;
+            margin: 0 0 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        /*validate code*/
+        #img_validate {
+            width: 140px;
+            height: 50px;
+            text-decoration: line-through wavy;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: Algerian;
+            font-size: 14px;
+            word-spacing: 2px;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .form button {
+            background: #4CAF50;
+            width: 120px;
+            border: 0;
+            padding: 10px;
+            margin: 20px;
+            color: #FFFFFF;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+            .form button:hover, .form button:focus, .form button:active {
+                background: #327134;
+            }
+
+        .form .register-form {
+            display: none;
+        }
+
+        body {
+            background: #76b852; /* fallback for old browsers */
+            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+            background: -moz-linear-gradient(right, #76b852, #8DC26F);
+            background: -o-linear-gradient(right, #76b852, #8DC26F);
+            background: linear-gradient(to left, #76b852, #8DC26F);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+    <div id="wrapper" class="login-page">
+        <div id="login_form" class="form">
+
+            <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+
+            <h3>网站后台管理系统登录V1.0</h3>
+            <table>
+                <tr>
+                    <td colspan="2"><input id="user_name" class="txtbox" type="text" placeholder="用户名" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="password" class="txtbox" type="password" placeholder="密码" /></td>
+                </tr>
+                <tr>
+                    <td><input id="validatecode" type="text" placeholder="验证码" title="注意：验证码区分大小写!" /></td>
+                    <td>
+                        <label id="img_validate" draggable="false" class="txt_neon" title="点击更换验证码">E5R4GB</label>
+                        @*<span></span>*@
+                    </td>
+                </tr>
+                <tr>
+                    <td><button id="login" title="点击登录">登　录</button></td>
+                    <td><button id="return" title="返回研究院首页">返回官网</button></td>
+                </tr>
+
+            </table>
+
+
+        </div>
+    </div>
+    <script src="~/Scripts/neon_text.js"></script>
+    <script type="text/javascript">
+        //login
+        function check_login(code) {
+            var name = $("#user_name").val().trim();
+            var pass = $("#password").val().trim();
+            var validate = $("#validatecode").val().trim();
+
+            if (name == "" || name.length == 0) {
+                $("#user_name").css({ "border": "1px solid red" });
+            } else if (pass == "" || pass.length == 0) {
+                $("#password").css({ "border": "1px solid red" });
+                $("#user_name").css({ "border": "" });
+            } else if (validate == "" || validate.length == 0 || validate != code) {
+                $("#validatecode").css({ "border": "1px solid red" });
+                $("#password").css({ "border": "" });
+                $("#user_name").css({ "border": "" });
+            } else {
+                $("#validatecode").css({ "border": "" });
+                $.ajax({
+                    type: "POST",
+                    url: "/Manage/Handle",
+                    data: { username: name, pwd: pass },
+                    datatype: 'text',
+                    success: function (data) {
+                        if (data == 'yes') {
+                            alert("登陆成功，欢迎回来！");
+                            window.location.href = "/Manage/ManageInfo";
+                        } else {
+                            alert("用户名或密码有误，请核对后重新输入！");
+                            window.location = "/Manage/Login";
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("出现错误，请稍后再试：" + xhr.responseText);
+                    }
+                });
+            }
+        }
+
+        //create code
+        function createCode() {
+            code = "";
+            var codeLength = 6;//code length
+            var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+            for (var i = 0; i < codeLength; i++) {
+                var index = Math.floor(Math.random() * 36);
+                code += random[index];//
+            }
+            return code;
+        }
+
+        $(function () {
+
+            var valicode = createCode();
+            $("#img_validate").html(valicode);
+            $("#validatecode").val(valicode);
+            $("#login").click(function () {
+                check_login(valicode);
+                return false;
+            });
+            $("#return").click(function () {
+                window.location.href = "https://www.baidu.com/";
+                return false;
+            });
+
+            $(".txt_neon").neonText();
+
+
+            $("#img_validate").click(function () {
+                valicode = createCode();
+                $("#img_validate").html(valicode);
+            });
+
+            $("#validatecode").blur(function () {
+                var code = $("#validatecode").val();
+                if (code == null || code.length == 0) {
+                    $("#validatecode").css({ "border": "1px solid red" });
+                } else {
+                    $("#validatecode").css({ "border": "" });
+                }
+            });
+        })
+    </script>
+</body>
+</html>

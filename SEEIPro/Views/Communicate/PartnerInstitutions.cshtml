@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>合作院校</title>
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .panel {
+            margin: 40px auto;
+            width: 100%;
+            min-height: 800px;
+            overflow: hidden;
+            color: #4F4F4F;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+        }
+
+            .panel .panel-body p {
+                line-height: 40px;
+            }
+
+        .college_list {
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            list-style: none;
+        }
+
+            .college_list li {
+                padding-right: 40px;
+                float: left;
+                text-align: center;
+            }
+
+            .college_list img {
+                max-width: 210px;
+            }
+
+                .college_list img:hover {
+                    border-radius: 5px;
+                    background: #DCDCDC;
+                }
+
+            .college_list li a {
+                color: black;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+                .college_list li a:hover {
+                    color: blue;
+                }
+
+        .navbar-text {
+            color: #b7b7b7;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>合作院校  <p class="navbar-text">(排名不分先后)</p> </h4></div>
+        <div class="panel-body">
+            <ul class="college_list">
+                <li><img src="~/Content/images/bj35.png" alt="北京市35中" draggable="false" title="北京三十五中学始建于1923年，其前身为志成中学，革命先驱李大钊烈士曾任学校董事会董事。1952年定为北京市第三十五中学，是西城区的重点中学，2005年被北京市教委认定为北京市示范性高中。" /><br /><a href="http://www.bj35.com" target="_blank" title="点击前往">北京市35中</a> </li>
+                <li><img src="~/Content/images/zgdzdx.png" alt="中国地质大学（武汉）" draggable="false" title="中国地质大学是由中华人民共和国教育部直属，国土资源部共建的一所以地球系统科学为主体，应用科学、前沿科学，以及新兴交叉学科协调发展的全国重点大学。" /><br /><a href="http://www.cugb.edu.cn" target="_blank" title="点击前往">中国地质大学（武汉）</a> </li>
+                <li><img src="~/Content/images/gdyy.png" alt="广东原雅学校" draggable="false" title="江门原雅学校是北大附属实验学校基础教育实验校，也是北大附属实验学校在全国打造的示范合作校，并与北京十一学校亦庄实验小学建立战略合作关系，全面实施其所提倡的“全课程教育实验”成果。" /><br /><a href="http://www.gdyuanya.com/" target="_blank" title="点击前往">广东原雅学校</a> </li>
+                <li><img src="~/Content/images/wydx.png" alt="五邑大学" draggable="false" title="五邑大学地处中国第一侨乡的广东省江门市，是珠江三角洲西岸唯一一所以工科为主的多科性教学型地方大学，广东省省市共建本科高校。" /><br /><a href="http://www.wyu.edu.cn/" target="_blank" title="点击前往">五邑大学</a> </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

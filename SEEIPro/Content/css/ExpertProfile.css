@@ -1,0 +1,43 @@
+﻿.tb_container {
+    margin: 20px auto;
+    width: 100px;
+    min-height: 400px;
+    font-size: 14px;
+}
+
+.ltr_hr {
+}
+
+.tb_container thead tr td {
+    text-align: left;
+}
+
+.expert_icon {
+    width: 130px;
+    height: 165px;
+}
+
+.tb_container tbody tr td {
+    text-align: center;
+}
+
+
+ul {
+    font-size: 14px;
+}
+
+    ul li {
+        float: left;
+        list-style-type: none;
+    }
+
+        ul li a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            ul li a:hover {
+                color: blue;
+                border-bottom: solid blue 1px;
+                background-color: #DCDCDC;
+            }

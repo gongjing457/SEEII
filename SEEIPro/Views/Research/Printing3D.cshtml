@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "3D应用试验区";
+    Layout = "~/Views/Shared/_LayoutPageMainPage.cshtml";
+}
+
+<link href="~/Content/css/Common.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    //同域内Iframe高度自适应
+    function reinitIframe() {
+        var iframe = document.getElementById("frame-container");
+        try {
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        } catch (ex) { }
+    }
+    window.setInterval("reinitIframe()", 200);
+</script>
+
+<div class="mid-banner"></div>
+<div class="mainbox">
+    <div class="navgiation_left">
+        <ul class="nav-column">
+            <li><a href="@Url.Action("Reform", "Research")" title="教育改革试验区">教育改革试验区</a></li>
+            <li><a class="on" href="@Url.Action("Printing3D", "Research")" title="3D应用试验区">3D应用试验区</a></li>
+        </ul>
+    </div>
+    <div class="content_right">
+        <iframe id="frame-container" src="@Url.Action("Printing3DArea","Research")" frameborder="0" scrolling="no" style="width:100%;min-height:800px; margin:0 auto;"></iframe>
+    </div>
+    <div class="clearfix"></div>
+</div>

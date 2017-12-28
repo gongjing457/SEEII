@@ -1,0 +1,151 @@
+﻿
+
+.tb_container {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    margin: 0 auto;
+    width: 98%;
+    height: 100%;
+    min-width: 600px;
+    border: solid #F5F5F5 1px;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: central;
+}
+
+    .tb_container a {
+        font-size: 14px;
+        text-decoration: none;
+        color: blue;
+        cursor: pointer;
+    }
+
+    .tb_container .errMsg {
+        color: red;
+        font-size: 16px;
+    }
+
+#imgFile {
+    width: 180px;
+    border: solid #BEBEBE 1px;
+}
+
+#imgExpert {
+    width: 130px;
+    height: 189px;
+}
+
+a:hover {
+    color: red;
+    border-bottom: solid blue 1px;
+    background-color: #DCDCDC;
+}
+
+
+.tb_container tr, td {
+    height: 60px;
+    border: solid #F5F5F5 1px;
+    border-collapse: collapse;
+}
+
+.tb_container .tr_submit {
+    height: 100px;
+}
+
+.tb_container tr .txtlabel {
+    width: 80px;
+    min-width: 60px;
+}
+
+.expert_icon {
+    height: 189px;
+    width: 130px;
+    border: 5px solid #ddd;
+    padding: 5px;
+    background: #fff;
+}
+
+.button {
+    margin-left: 100px;
+    height: 30px;
+    width: 140px;
+    border-radius: 5px;
+}
+
+.button2 {
+    margin-left: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 2px;
+}
+
+    .button2:hover {
+        border: solid blue 1px;
+        cursor: pointer;
+        color: blue;
+        background-color: #BEBEBE;
+    }
+
+.textbox {
+    text-align: center;
+    height: 20px;
+    width: 160px;
+    border-radius: 5px;
+}
+
+.datalist {
+    text-align: center;
+    height: 25px;
+    width: 180px;
+    border-radius: 5px;
+}
+
+.tb_container .multitext {
+    height: 200px;
+    width: 800px;
+    font-size: 14px;
+}
+
+.tb_container .textbox2 {
+}
+
+#ePersonalUrl {
+    text-align: center;
+    height: 20px;
+    width: 280px;
+    border-radius: 5px;
+}
+
+/*datalist {
+    font-family: "微软雅黑";
+    font-size: 14px;
+}*/
+
+.button:hover {
+    border: solid blue 1px;
+    cursor: pointer;
+    color: blue;
+    background-color: #BEBEBE;
+}
+
+.checkbox {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+label {
+    cursor: pointer;
+}
+
+    label:hover {
+        color: blue;
+        background-color: #DCDCDC;
+    }
+
+.multitext {
+    background-color: #F5F5F5;
+    font-size: 18px;
+}

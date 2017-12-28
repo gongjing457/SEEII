@@ -1,0 +1,151 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>专家信息库登录</title>
+    <link rel="icon" type="image/x-icon" href="~/Content/images/favico.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/htmleaf-demo.css">
+    <style type="text/css">
+        .login-page {
+            width: 360px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+            .form input {
+                font-family: "Roboto", sans-serif;
+                outline: 0;
+                background: #f2f2f2;
+                width: 100%;
+                border: 0;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+
+            .form button {
+                font-family: "Microsoft YaHei","Roboto", sans-serif;
+                text-transform: uppercase;
+                outline: 0;
+                background: #4CAF50;
+                width: 100%;
+                border: 0;
+                padding: 15px;
+                color: #FFFFFF;
+                font-size: 14px;
+                -webkit-transition: all 0.3 ease;
+                transition: all 0.3 ease;
+                cursor: pointer;
+            }
+
+                .form button:hover, .form button:active, .form button:focus {
+                    background: #43A047;
+                }
+
+            .form .message {
+                margin: 15px 0 0;
+                color: #b3b3b3;
+                font-size: 12px;
+            }
+
+                .form .message a {
+                    color: #4CAF50;
+                    text-decoration: none;
+                }
+
+        body {
+            background: #76b852; /* fallback for old browsers */
+            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+            background: -moz-linear-gradient(right, #76b852, #8DC26F);
+            background: -o-linear-gradient(right, #76b852, #8DC26F);
+            background: linear-gradient(to left, #76b852, #8DC26F);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <!--[if IE]>
+        <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#login").click(function () {
+                check_login();
+                return false;
+            });
+        })
+
+        function check_login() {
+            var name = $("#user_name").val();
+            var pass = $("#password").val();
+            if (name == "" || pass == "") {
+                alert("请输入用户名或者密码！");
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "/Backstage/Handler",
+                    data: { name: $("#user_name").val().trim(), pwd: $("#password").val().trim() },
+                    datatype: 'text',
+                    success: function (data) {
+
+                        if (data == 'yes') {
+                            alert("登陆成功，欢迎回来！");
+                            window.location.href = "/Backstage/loadMain";
+                        } else {
+                            alert("用户名或密码有误，请核对后重新输入！");
+                            //$("#user_name").val("");
+                            //$("#password").val("");
+                            window.location = "/Backstage/Login";
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert("出现错误，请稍后再试：" + xhr.responseText);
+                    }
+                });
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id="wrapper" class="login-page">
+        <h4 style="text-align:center">南方教育装备产业发展智库V1.0</h4>
+        <div id="login_form" class="form">
+            <form class="login-form">
+                <input type="text" placeholder="用户名" id="user_name" />
+                <input type="password" placeholder="密码" id="password" />
+                <button id="login">登　录</button>
+                <p class="message">还没有账户? <a href="#">立刻创建</a></p>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

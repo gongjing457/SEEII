@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "项目合作";
+    Layout = "~/Views/Shared/_LayoutPageMainPage.cshtml";
+}
+
+ 
+<link href="~/Content/css/Common.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+
+    //同域内Iframe高度自适应
+    function reinitIframe() {
+        var iframe = document.getElementById("frmContent");
+        try {
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        } catch (ex) { }
+    }
+    window.setInterval("reinitIframe()", 200);
+
+</script>
+
+<div class="mainbox">
+    <div class="mid-banner">
+    </div>
+    <div class="navgiation_left">
+
+        <ul class="nav-column">
+            <li><a class="on" href="@Url.Action("Cooperation", "Contact")" title="项目合作">项目合作</a></li>
+            <li><a href="@Url.Action("Recruitment", "Contact")" title="人才招聘">人才招聘</a></li>
+            <li><a href="@Url.Action("Download", "Contact")" title="资料下载">资料下载</a></li>
+            <li><a href="@Url.Action("MailBox", "Contact")" title="院长信箱">院长信箱</a></li>
+
+        </ul>
+    </div>
+    <div class="content_right">
+        <iframe id="frmContent" src="@Url.Action("Cooperate", "Contact")" f frameborder="0" scrolling="no" style="width:100%;min-height:800px; margin:0 auto;"></iframe>
+    </div>
+    <div class="clearfix"></div>
+</div>

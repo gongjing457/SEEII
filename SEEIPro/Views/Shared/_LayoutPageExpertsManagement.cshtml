@@ -1,0 +1,34 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/ExpertsManage.css" rel="stylesheet" />
+    <link type="image/x-icon" href="~/Content/images/favico.ico" rel="icon" />
+</head>
+<body>
+    <div class="div_top">
+        <span class="sp_welcome">
+            今天是 @Html.Label("yyyy-MM-DD", DateTime.Today.Date.ToLongDateString())，欢迎 @if (Session["name"] != null)
+            {
+                @Session["name"]
+            }回来！
+        </span>
+        <a class="sp_back" title="点击返回首页" href="@Url.Action("Home", "Main")">返回首页</a>
+    </div>
+
+    <div class="div_right">
+        @RenderBody()
+    </div>
+    <div class="div_left">
+        <ul>
+            <li><a href="@Url.Action("Index", "ExpertsManage")" title="查看专家列表"><span><img src="~/Content/images/iterm.jpg" /></span>查看专家列表</a> </li>
+            <li> <a href="@Url.Action("Add", "ExpertsManage")" title="专家信息录入"><span><img src="~/Content/images/iterm.jpg" /></span>录入专家信息</a> </li>
+            <li><a href="#" title="专家相关附件上传(个人登记表、专家聘书等)"><span><img src="~/Content/images/iterm.jpg" /></span>上传专家附件</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

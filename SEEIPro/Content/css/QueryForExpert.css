@@ -1,0 +1,48 @@
+﻿body {
+    font-size: 14px;
+    font: "微软雅黑";
+}
+
+.div_content {
+    margin: 5px auto;
+    /*padding-top: 5px;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+.tb_querylist {
+    margin-top: 5px;
+    width: 98%;
+    /*height: 400px;*/
+    min-width: 1200px;
+    border: solid #F5F5F5 1px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+    .tb_querylist tr, td {
+        border: solid #F5F5F5 1px;
+        border-collapse: collapse;
+    }
+
+    .tb_querylist thead tr {
+        height: 40px;
+    }
+
+        .tb_querylist thead tr td {
+            font-size: 16px;
+            word-break: keep-all;
+        }
+
+    .tb_querylist tbody tr td {
+        font-size: 14px;
+        word-break: keep-all;
+    }
+
+.tb_querylisttbody tr {
+    height: 30px;
+}
+
+.tb_querylist tbody tr:hover {
+    background-color: #F5F5F5;
+}
