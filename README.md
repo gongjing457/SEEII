@@ -1,4 +1,4 @@
-[demo](www.seeii.org "click to visit this demo")
+[demo](http://www.seeii.org "click to visit this demo")
 ==========================
 jump to visit this demo
 --------------------------
