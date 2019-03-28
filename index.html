@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://www.seeii.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+    <title>南方教育装备创新研究院</title>
+    <meta name="keywords" content="南方教育装备创新研究院,教育装备,研究院">
+    <meta name="description" content="南方教育装备创新研究院是在教育部教育装备研究与发展中心的指导与支持下，采取政府、高校、企业等多部门协同创新的方式，建设的一所集教育装备技术研发、产品检测、人才培养和产业孵化为一体的教育装备新型研发机构。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link type="image/x-icon" rel="icon" href="SEEIPro/Content/images/favico.ico">
+
+    <link href="SEEIPro/Content/css/floatpanelstyle.css" rel="stylesheet">
+    <link href="SEEIPro/Content/css/navigation.css" rel="stylesheet">
+    <link href="SEEIPro/Content/css/MainPage.css" rel="stylesheet">
+    <script src="SEEIPro/Scripts/jquery-2.1.4.min.js"></script><style type="text/css" abt="234"></style>
+
+<script>//remove 17173 video ad
+doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+//remove baidu search ad
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+//remove sohu video ad
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//remove 56.com video ad
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//fore iqiyi enable html5 player function
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head><remove-web-limits-iqxin id="rwl-iqxin" class="rwl-exempt" style="position: fixed; top: 2px; left: 0px;"><button type="button" id="rwl-setbtn"> set </button> <lalala style="cursor:move;">限制解除</lalala> <input type="checkbox" name="" id="black_node"><style type="text/css">#rwl-iqxin{position:fixed;transform:translate(-90px,0);width:85px;height:25px;font-size:12px;font-weight: 500;font-family:Verdana, Arial, '宋体';color:#fff;background:#333;z-index:2147483647;margin: 0;opacity:0.05;transition:0.3s;overflow:hidden;user-select:none;text-align:center;white-space:nowrap;line-height:25px;padding:0 16px;border:1px solid #ccc;border-width:1px 1px 1px 0;border-bottom-right-radius:5px;box-sizing: content-box;}#rwl-iqxin input{margin: 0;padding: 0;vertical-align:middle;-webkit-appearance:checkbox;-moz-appearance:checkbox;position: static;clip: auto;opacity: 1;cursor: pointer;}#rwl-iqxin.rwl-active-iqxin{left: 0px;transform:translate(0,0);opacity: 0.9;height: 32px;line-height: 32px}#rwl-iqxin label{margin:0;padding:0;font-weight:500;}#rwl-iqxin button{margin: 0;padding: 0 2px;border: none;border-radius: 2px;cursor: pointer;}#rwl-setMenu{text-align:left;font-size:14px;z-index:999999;border: 1px solid cornflowerblue;}#rwl-setMenu p{margin:5px auto;} </style></remove-web-limits-iqxin>
+<body cz-shortcut-listen="true">
+    <!--loading-->
+    <div class="loadingwrap" id="loadingPanel" style="display: none;">
+        <div class="loadinggif">稍等片刻，精彩马上开始！...</div>
+        <div class="loadinggif"></div>
+    </div>
+    <script>
+        /*loading*/
+        document.onreadystatechange = function () {
+            switch (document.readyState) {
+                case "loading": break;
+                case "interactive": break;
+                case "complete":
+                    $("#loadingPanel").hide();
+                    break;
+            }
+        };</script>
+
+    <!--Float Panel-->
+    <script type="text/javascript">
+        $(function () {
+            //Float Panel
+            $("#floatPanel > .ctrolPanel > a.arrow").eq(0).click(function () { $("html,body").animate({ scrollTop: 0 }, 800); return false; });
+
+            var objPopPanel = $("#floatPanel > .popPanel");
+            var w = objPopPanel.outerWidth();
+            $("#floatPanel > .ctrolPanel > a.qrcode").bind({
+                mouseover: function () {
+                    objPopPanel.css("width", "0px").show();
+                    objPopPanel.animate({ "width": w + "px" }, 300); return false;
+                },
+                mouseout: function () {
+                    objPopPanel.animate({ "width": "0px" }, 300); return false;
+                    objPopPanel.css("width", w + "px");
+                }
+            });
+        });
+    </script>
+    <div id="floatPanel">
+        <div class="ctrolPanel">
+            <a class="arrow" href="#" title="点击返回顶部"><span>顶部</span></a>
+            <a class="contact" title="反馈留言" href="https://shimo.im/sheet/fJjpA6Gjt9c0Msvx?r=ODJXER/%E3%80%8C2017%E5%B9%B4%E5%BA%A6%E5%8F%8D%E9%A6%88%E5%8D%95%E3%80%8D" target="_blank"><span>反馈</span></a>
+            <a class="qrcode" href="#" title="请扫描二维码添加关注">微信</a>
+        </div>
+        <div class="popPanel" style="">
+            <div class="popPanel-inner">
+                <div class="qrcodePanel">
+                    <img src="SEEIPro/Content/images/weixin.jpg"><br><span>获取更多精彩，请扫码关注！</span>
+                </div>
+                <div class="arrowPanel">
+                    <div class="arrow01">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Float Panel-->
+
+    <div id="page">
+        <header id="header">
+            <div class="wrap_tips">
+                <marquee direction="left" behavior="scroll" scrollamount="20" scrolldelay="500" loop="-1" hspace="10"> 温馨提示：为了不影响您的正常使用和用户体验，请使用Goole Chorme42以上，IE9以上，Opera26以上，FireFox38以上，360极速最新版浏览器（浏览本网站时，建议将电脑显示屏的分辨率调为1920*1080或以上为佳）！</marquee>
+            </div>
+            <div class="top_wrap">
+                <div class="tab_wrap">
+                    <h1><a href="#" title="南方教育装备创新研究院"> <img src="SEEIPro/Content/images/logo.jpg" draggable="false" alt="研究院首页" title="南方教育装备创新研究院"></a> </h1>
+                    <nav>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">研究院概况</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/About/ProfileInfo">研究院简介</a></li>
+                                    <li><a href="SEEIPro/About/Organization">组织架构</a></li>
+                                    <li><a href="SEEIPro/About/Goals">发展规划</a></li>
+                                    <li><a href="SEEIPro/About/Landscape">研究院风采</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">新闻资讯</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/Information/InstitutionalNews">研究院新闻</a></li>
+                                    <li><a href="SEEIPro/Information/IndustrialNews">教装资讯</a></li>
+                                    <li><a href="SEEIPro/Information/IndustrialNews">政策法规</a></li>
+                                </ul>
+                            </li>
+                            <li class="active">
+                                <a href="#">课题研究</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/Research/Reform">教育改革试验区</a></li>
+                                    <li><a href="SEEIPro/Research/Printing3D">3D应用试验区</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">人才培养</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/Hatching/eCollege">教育装备学院</a></li>
+                                    <li><a href="SEEIPro/Hatching/Training">培训中心</a></li>
+                                    <li><a href="SEEIPro/Hatching/Cocultivation">高校联合培养</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li><a href="SEEIPro/Util/Evaluation">产品检测评估</a></li>
+                            <li>
+                                <a href="#">合作交流</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/Communicate/HigherEducation">高教学会合作</a></li>
+                                    <li><a href="SEEIPro/Communicate/Academic">学术平台</a></li>
+                                    <li><a href="SEEIPro/Communicate/College">院校合作</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">联系我们</a>
+                                <ul class="submenu">
+                                    <li><a href="SEEIPro/Contact/Cooperation">项目合作</a></li>
+                                    <li><a href="SEEIPro/Contact/Recruitment">人才招聘</a></li>
+                                    <li> <a href="SEEIPro/Contact/Download">资料下载</a></li>
+                                    <li><a href="SEEIPro/Contact/MailBox">院长信箱</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="main">
+            
+
+<link href="SEEIPro/Content/css/edslider.css" rel="stylesheet">
+<link href="SEEIPro/Content/css/edsliderstyle.css" rel="stylesheet">
+<link href="SEEIPro/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="SEEIPro/Content/css/magicbox.css" rel="stylesheet"> 
+
+<script src="SEEIPro/Scripts/jquery.edslider.js"></script>
+
+<script src="SEEIPro/Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="SEEIPro/Scripts/grid-to-carousel.js"></script>
+ 
+<script type="text/javascript">
+    //Graphic play
+    $(document).ready(function () {
+        $('.mySlideshow').edslider({
+            width: '100%',
+            heght: '600',
+            paginator: false
+        });
+    });
+    //The magic box
+    $(function () {
+        $('.features-container').gridToCarousel();
+    });
+
+</script>
+
+
+
+<!--Graphic play -->
+<div class="imgcontainer">
+    <div class="edslider" style="width: 100%; background-image: url(&quot;../Content/images/load.gif&quot;); background-repeat: no-repeat; background-position: center center;"><div class="progress" style="width: 0px;"></div><ul class="mySlideshow hover" style="height: 600px; background-image: none; background-repeat: no-repeat; background-position: center center;">
+        <li class="first" style="background-image: url(&quot;../../Content/images/first.jpg&quot;); height: 600px; width: 100%; display: none;">
+            <div class="carousel-caption">
+                <h4>南教城闪耀第73届中国教育装备展示会 高科技产品燃爆全场</h4>
+                <p>12月26-28日，由中国教育装备行业协会主办，广东省教育厅、广州市人民政府承办的第73届中国教育装备展示会在广州中国进出口商品交易会展馆盛大开幕。作为我国教育装备改革创新的示范区和现代教育装备创新产业集聚区，南方教育装备创新产业城特携手16家优秀入驻企业闪耀亮相，超百款高科技教育装备产品为观众带来一系列体验惊喜，燃爆全场。</p>
+            </div>
+        </li>
+        <li class="second" style="height: 600px; width: 100%; display: none;">
+            <div class="carousel-caption">
+                <h4>2017第二届中国制造2025与人工智能大会</h4>
+                <p>“中国制造2025”与“德国工业4.0”对接，为两国合作打造新动能，促进中国人工智能和机械制造的发展，提升珠海市装备产业的“智造”水平、促进珠海市产业技术的提高，由珠海（国家）高新技术产业开发区主办、珠海市四维时代网络科技有限公司和珠海市高新建设投资有限公司联合承办的“2017第二届中国制造2025与人工智能大会”于9月13日在珠海市度假村酒店盛大召开。</p>
+            </div>
+        </li>
+        <li class="third current" style="height: 600px; width: 100%; display: list-item;">
+            <div class="carousel-caption">
+                <h4>蓬江区李立欣副区长在南教城两周年庆典上发言</h4>
+                <p>教育部教育装备研究与发展中心现代教育装备 创新与应用实验区及评估中心签约仪式</p>
+            </div>
+        </li>
+        <li class="fourth" style="height: 600px; width: 100%; display: none;">
+            <div class="carousel-caption">
+                <h4>3D打印（VR、AR）技术教育教学应用实验区</h4>
+                <p>7月22日，就实验区今后的建设工作，教育部教育装备研究与发展中心与蓬江区政府、蓬江区教育局、南方教育装备创新产业城和南方教育装备创新研究院进行了“3D打印（VR、AR）技术教育教学应用实验区建设项目”研讨会。</p>
+            </div>
+        </li>
+        <li class="fifth" style="height: 600px; width: 100%; display: none;">
+            <div class="carousel-caption">
+                <h4>人工智能改变世界</h4>
+                <p>中国人工智能初创公司挑战赛”旨在寻找中国AI新兴初创企业的最强音——鼓励中国初创公司，展现他们在人工智能等计算领域的研发成果，对优秀者给予技术、产品或资金方面的支持。</p>
+            </div>
+        </li>
+    </ul><div class="controls"><div class="navigator prev" style="display: block;"></div><div class="navigator next" style="display: block;"></div></div></div>
+</div>
+
+<!--about us-->
+<div class="div_about">
+    <div class="about_wrap">
+        <!--left-->
+        <div class="about_container about_left" style="background:url(../../Content/images/yjy.jpg) center no-repeat ;background-size:cover">
+
+        </div>
+
+        <!--right-->
+        <div class="about_container about_right">
+            <h2>关于研究院<span class="Subtext">/About us</span></h2>
+            <span style="margin-top:5px;width:100px; height:1px; border-bottom:1px solid #cecece;border-bottom-width:1px; overflow:hidden"></span>
+            <div class="about_content">
+                <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;南方教育装备创新研究院，是
+                    <strong style="font-family:&#39;Microsoft YaHei&#39;">
+                        南方教育装备创新产业城创新驱动的核心支撑部分
+                    </strong>，是在
+                    <strong style="font-family:&#39;Microsoft YaHei&#39;">
+                        教育部教育装备研究与发展中心
+                    </strong>的指导与支持下，采取政府、高校、企业等多部门协同创新的方式，建设的一所集教育装备技术研发、产品检测、人才培养和产业孵化为一体的教育装备新型研发机构。
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--about us end-->
+<!--The magic box-->
+<div class="magicbox">
+    <div class="headcontainer"><h2 class="headtitle">六大核心业务<span class="Subtext">/Core business</span></h2></div>
+    <div class="container pd50">
+        <div class="features">
+            <div class="features-container">
+                <div id="carousel-example-generic" class="hidden carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <div class="content content-green">
+                                <span class="close-btn">✕</span>
+                                <img class="feature-img" src="./index_files/feature-img.jpg">
+                                <h2>产品检测平台</h2>
+                                <p>
+                                    隶属于<span class="highlight-yellow">
+                                        南方教育装备产业城
+                                    </span>，由<strong>教育部教育装备研究与发展中心</strong> 的指导，江门市政府、蓬江区政府和广东珠西智谷投资有限公司支持建设的
+                                    <span class="highlight-yellow">现代教育装备产品检测评估中心</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-yellow">
+                                <span class="close-btn">✕</span>
+                                <h2>人才服务平台</h2>
+                                <p>打造教育装备高层次应用型人才培养示范基地，为教育装备产业发展输送高端专业人才</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-white">
+                                <span class="close-btn">✕</span>
+                                <h2>技术服务平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产业创新发展课题中心，解决教育装备产业发展中的共性技术问题</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-grey">
+                                <span class="close-btn">✕</span>
+                                <h2>创新创业服务平台</h2>
+                                <p>打造教育装备众创空间，引进创新创业型项目，为创业团队提供金融技术与创业辅导</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-red">
+                                <span class="close-btn">✕</span>
+                                <h2>应用平台</h2>
+                                <p>搭建研究院教育装备应用能力培训平台，提升教师对信息化教育装备场频发展的认识水平与应用能力</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content content-white-green">
+                                <span class="close-btn">✕</span>
+                                <h2>南方教育装备产业城</h2>
+                                <p>研究院是南方教育装备产业城的核心支撑部分</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!--grid box-->
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-green">
+                                <h2>产品检测平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产品检测评估中心</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-yellow">
+                                <h2>人才服务平台</h2>
+                                <p>打造教育装备高层次应用型人才培养示范基地，为教育装备产业发展输送高端专业人才</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-6">
+                            <div class="content content-white">
+                                <img src="./index_files/united-icon.png" alt="暂无图片">
+                                <h2>技术服务平台</h2>
+                                <p>在教育部教育装备研究与发展中心的指导下建设教育装备产业创新发展课题中心，解决教育装备产业发展中的共性技术问题</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-6">
+                            <div class="content content-grey">
+                                <img src="./index_files/browser-icon.jpg" alt="暂无图片">
+                                <h2>创新创业服务平台</h2>
+                                <p>打造教育装备众创空间，引进创新创业型项目，为创业团队提供金融技术与创业辅导</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-red">
+                                <h2>应用平台</h2>
+                                <p>搭建研究院教育装备应用能力培训平台，提升教师对信息化教育装备场频发展的认识水平与应用能力</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <div class="content content-white-green">
+                                <h2>南方教育装备产业城</h2>
+                                <p>研究院是南方教育装备产业城的核心支撑部分</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!--The magic box end-->
+<!--latest news-->
+<div class="new-container">
+    <h2>最新资讯<span class="Subtext">/Latest news</span></h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <img class="img-circle" src="./index_files/n1.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>全国首个教育装备体验中心在江门启动</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 11月3日上午，中国教育装备体验中心动工仪式在蓬江区双龙大道42号举行。作为蓬江区重大项目签约奠基投产发展成果展示活动的环市分会场，活动向社会展示了蓬江区近年产业建设及项目成果、珠西智谷项目进展情况、以及教育装备产业的重要发展项目——中国教育装备体验中心。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="./index_files/n2.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 10月26日，北京易教空间教育科技股份有限公司一行到访南方教育装备创新产业城，并与蓬江区教育局、南方教育装备创新研究院开展座谈会。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="./index_files/n3.jpg" alt="Generic placeholder image" width="200" height="200">
+            <h3>2000名小创客来袭，燃爆南方教育装备创新产业城</h3>
+            <p style="line-height:30px;"><i class="glyphicon glyphicon-hand-right"></i> 11月4日上午9点，江门市蓬江区环市街小学“奇思妙想 创乐无限”创客嘉年华于南方教育装备创新产业城顺利拉开帷幕，环市街2000名小创客在南方教育装备创新产业城内“斗”创意，晒作品。</p>
+            <p><a class="btn btn-default" href="#" role="button">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+</div>
+<!--latest news end-->
+<!--Links-->
+<div class="links_wrap">
+    <div class="content_wrap">
+        <div class="info_wrap link_content">
+            <span>友情链接</span>
+            <div class="all_links">
+                <a href="http://www.zbzx.edu.cn/" target="_blank" title="点击前往教育部教育装备研究与发展中心">教育部教育装备研究与发展中心</a>
+                &nbsp; |  &nbsp; <a href="http://www.pjq.gov.cn/" target="_blank" title="点击前往蓬江区政府">江门市蓬江区人民政府</a>
+                &nbsp; | &nbsp;<a href="http://jyj.jiangmen.gov.cn/" target="_blank" title="点击前往江门市教育局">江门市教育局</a>
+                &nbsp; | &nbsp;<a href="http://ldj.jiangmen.gov.cn/" target="_blank" title="点击前往江门市人力资源和社会保障局">江门市人力资源和社会保障局</a>
+                &nbsp; | &nbsp;<a href="http://www.gidichina.org/" target="_blank" title="点击前往顺德创新设计研究院">顺德创新设计研究院</a>
+                &nbsp; | &nbsp;<a href="http://www.edueic.com/" target="_blank" title="点击前往南方教育装备创新产业城官网">南方教育装备创新产业城</a>
+                &nbsp; | &nbsp;<a href="http://www.wyu.edu.cn/" target="_blank" title="点击前往五邑大学">五邑大学</a>
+            </div>
+        </div>
+        <div class="info_wrap contact_content">
+            <span>联系我们</span>
+            <table class="tb_addr">
+                <tbody><tr><td><i class="glyphicon glyphicon-phone-alt"></i>0750-3699695</td> </tr>
+                <tr><td><i class="glyphicon glyphicon-envelope"></i>jyzbyjy@126.com</td></tr>
+                <tr><td><i class="glyphicon glyphicon-map-marker"></i>广东省江门市蓬江区群华路15号5栋二层</td></tr>
+            </tbody></table>
+        </div>
+    </div>
+</div>
+<!--Links end--> 
+        </div>
+        <!--Footer-->
+        <footer id="footer">
+            <div class="hp_divfoot"><span style="font-size:13px;">南方教育装备创新研究院&nbsp;&nbsp;版权所有 ©2017&nbsp;&nbsp; 地址：广东省江门市蓬江区群华路15号群华科技园5栋二层&nbsp;&nbsp;&nbsp;&nbsp; 粤ICP备0000000000号</span></div>
+        </footer>
+    </div>
+
+
+</body></html>
