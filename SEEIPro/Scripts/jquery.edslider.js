@@ -18,7 +18,7 @@
             paginator: true,
             navigator: true,
             progress: true,
-            loadImgSrc: '../Content/images/load.gif',
+            loadImgSrc: 'SEEIIPro/Content/images/load.gif',
             skin: 'edslider'
         };
 
